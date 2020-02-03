@@ -5,8 +5,6 @@ from  discord.ext import tasks
 from datetime import datetime, timedelta, timezone
 import os
 
-from urllib import request
-from bs4 import BeautifulSoup
 import json
 JST = timezone(timedelta(hours=+9), 'JST')
 
