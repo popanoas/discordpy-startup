@@ -1,3 +1,5 @@
+import re
+import asyncio
 import discord
 from  discord.ext import tasks
 from datetime import datetime, timedelta, timezone
