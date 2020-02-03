@@ -13,7 +13,7 @@ JST = timezone(timedelta(hours=+9), 'JST')
     
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
-        with open("config.json","r") as f:
+
 TOKEN = os.environ['DISCORD_BOT_TOKEN']
 
 default_url = "https://www.youtube.com"
