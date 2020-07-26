@@ -21,4 +21,4 @@ async def on_message(message):
         await message.channel.send('----------1段階目----------')
 
 # Botの起動とDiscordサーバーへの接続
-client.run(TOKEN)
+client.run(token)
