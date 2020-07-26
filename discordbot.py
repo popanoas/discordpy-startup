@@ -15,10 +15,21 @@ async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
-    # 「/1階目」と発言したら「一段階目」が返る処理
+    # 「/1段階目」と発言したら「一段階目」が返る処理
     if message.content == '/1段階目':
         channel = client.get_channel(CHANNEL_ID)
         await channel.send('--------------------1段階目--------------------')
-
+    # 「/2段階目」と発言したら「一段階目」が返る処理
+    if message.content == '/2段階目':
+        channel = client.get_channel(CHANNEL_ID)
+        await channel.send('--------------------2段階目--------------------')
+    # 「/3段階目」と発言したら「一段階目」が返る処理
+    if message.content == '/3段階目':
+        channel = client.get_channel(CHANNEL_ID)
+        await channel.send('--------------------3段階目--------------------')
+    # 「/4段階目」と発言したら「一段階目」が返る処理
+    if message.content == '/4段階目':
+        channel = client.get_channel(CHANNEL_ID)
+        await channel.send('--------------------4段階目--------------------')
 # Botの起動とDiscordサーバーへの接続
 client.run(token)
