@@ -18,7 +18,7 @@ async def on_message(message):
     # 「/1階目」と発言したら「一段階目」が返る処理
     if message.content == '/1段階目':
         channel = client.get_channel(CHANNEL_ID)
-        await message.channel.send('--------------------1段階目--------------------')
+        await channel.send('--------------------1段階目--------------------')
 
 # Botの起動とDiscordサーバーへの接続
 client.run(token)
