@@ -15,8 +15,8 @@ async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
-    # 「!１段階目」と発言したら「一段階目」が返る処理
-    if message.content == '!1段階目':
+    # 「/1階目」と発言したら「一段階目」が返る処理
+    if message.content == '/1段階目':
         channel = client.get_channel(CHANNEL_ID)
         await message.channel.send('----------1段階目----------')
 
