@@ -25,7 +25,7 @@ async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
- 　 # チャンネル1に対するアクション
+    # チャンネル1に対するアクション
     if message.content == '/1段階目':
         channel = client.get_channel(ID_CHANNEL_1)
         await channel.send('--------------------1段階目--------------------')
