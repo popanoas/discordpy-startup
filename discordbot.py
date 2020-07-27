@@ -25,7 +25,7 @@ async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
- # チャンネル1に対するアクション
+ 　 # チャンネル1に対するアクション
     if message.content == '/1段階目':
         channel = client.get_channel(ID_CHANNEL_1)
         await channel.send('--------------------1段階目--------------------')
@@ -42,7 +42,7 @@ async def on_message(message):
         channel = client.get_channel(ID_CHANNEL_1)
         await channel.send('--------------------4段階目--------------------')
         
- # チャンネル2に対するアクション
+    # チャンネル2に対するアクション
     if message.content == '/1段階目':
         channel = client.get_channel(ID_CHANNEL_2)
         await channel.send('--------------------1段階目--------------------')
@@ -59,7 +59,7 @@ async def on_message(message):
         channel = client.get_channel(ID_CHANNEL_2)
         await channel.send('--------------------4段階目--------------------')      
         
- # チャンネル3に対するアクション
+    # チャンネル3に対するアクション
     if message.content == '/1段階目':
         channel = client.get_channel(ID_CHANNEL_3)
         await channel.send('--------------------1段階目--------------------')
@@ -76,7 +76,7 @@ async def on_message(message):
         channel = client.get_channel(ID_CHANNEL_3)
         await channel.send('--------------------4段階目--------------------')
         
- # チャンネル4に対するアクション
+    # チャンネル4に対するアクション
     if message.content == '/1段階目':
         channel = client.get_channel(ID_CHANNEL_4)
         await channel.send('--------------------1段階目--------------------')
@@ -93,7 +93,7 @@ async def on_message(message):
         channel = client.get_channel(ID_CHANNEL_4)
         await channel.send('--------------------4段階目--------------------')   
         
- # チャンネル5に対するアクション
+    # チャンネル5に対するアクション
     if message.content == '/1段階目':
         channel = client.get_channel(ID_CHANNEL_5)
         await channel.send('--------------------1段階目--------------------')
@@ -110,7 +110,7 @@ async def on_message(message):
         channel = client.get_channel(ID_CHANNEL_5)
         await channel.send('--------------------4段階目--------------------')   
  
- # チャンネル6に対するアクション
+    # チャンネル6に対するアクション
     if message.content == '/1段階目':
         channel = client.get_channel(ID_CHANNEL_6)
         await channel.send('--------------------1段階目--------------------')
@@ -127,7 +127,7 @@ async def on_message(message):
         channel = client.get_channel(ID_CHANNEL_6)
         await channel.send('--------------------4段階目--------------------')   
 
- # チャンネル7に対するアクション
+    # チャンネル7に対するアクション
     if message.content == '/1段階目':
         channel = client.get_channel(ID_CHANNEL_7)
         await channel.send('--------------------1段階目--------------------')
@@ -144,7 +144,7 @@ async def on_message(message):
         channel = client.get_channel(ID_CHANNEL_7)
         await channel.send('--------------------4段階目--------------------')          
         
- # チャンネル8に対するアクション
+    # チャンネル8に対するアクション
     if message.content == '/1段階目':
         channel = client.get_channel(ID_CHANNEL_8)
         await channel.send('--------------------1段階目--------------------')
@@ -161,7 +161,7 @@ async def on_message(message):
         channel = client.get_channel(ID_CHANNEL_8)
         await channel.send('--------------------4段階目--------------------')          
         
- # チャンネル9に対するアクション
+    # チャンネル9に対するアクション
     if message.content == '/1段階目':
         channel = client.get_channel(ID_CHANNEL_9)
         await channel.send('--------------------1段階目--------------------')
@@ -178,7 +178,7 @@ async def on_message(message):
         channel = client.get_channel(ID_CHANNEL_9)
         await channel.send('--------------------4段階目--------------------')          
  
- # チャンネル10に対するアクション
+    # チャンネル10に対するアクション
     if message.content == '/1段階目':
         channel = client.get_channel(ID_CHANNEL_10)
         await channel.send('--------------------1段階目--------------------')
