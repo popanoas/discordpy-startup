@@ -2,7 +2,9 @@
 import discord
 import asyncio
 import os
+from datetime import datetime
 
+CHANNEL_ID = 726398497384824853 #毎日朝5時を通知するチャンネルID
 ID_CHANNEL_1 = 670294227846037514  # 1チャンネルID（事前設定用）
 ID_CHANNEL_2 = 715596202032496760  # 2チャンネルID（事前設定用）
 ID_CHANNEL_3 = 670294262696509469  # 3チャンネルID（事前設定用）
@@ -195,6 +197,18 @@ async def on_message(message):
     if message.content == '/4段階目':
         channel = client.get_channel(ID_CHANNEL_10)
         await channel.send('--------------------4段階目--------------------')  
+            # 60秒に一回ループ
+@tasks.loop(seconds=60)
+async def loop():
+    # 現在の時刻
+    now = datetime.now().strftime('%H:%M')
+    if now == '20:00':
+        channel = cliant.get_channel(CHANNEL_ID)
+        await channel.send('日付が変わりました！タスクキルしたらスタンプを付けましょうね')  
+        await tmp_msg.add_reaction(emoji=":crab:")
+                  
+#ループ処理実行
+loop.start()
         
 # Botの起動とDiscordサーバーへの接続
 client.run(token)
