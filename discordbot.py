@@ -206,7 +206,7 @@ async def loop():
     if now == '20:00':
         channel = cliant.get_channel(CHANNEL_ID)
         await channel.send('日付が変わりました！タスクキルしたらスタンプを付けましょうね')  
-        await tmp_msg.add_reaction(emoji=":crab:")
+        await add_reaction(emoji=":crab:")
                   
 #ループ処理実行
 loop.start()
