@@ -2,6 +2,7 @@
 import discord
 import asyncio
 import os
+import traceback
 from datetime import datetime
 from discord.ext import tasks
 
@@ -198,6 +199,7 @@ async def on_message(message):
     if message.content == '/4段階目':
         channel = client.get_channel(ID_CHANNEL_10)
         await channel.send('--------------------4段階目--------------------')  
+        
             # 60秒に一回ループ
 @tasks.loop(seconds=60)
 async def loop():
