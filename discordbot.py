@@ -3,6 +3,7 @@ import discord
 import asyncio
 import os
 import traceback
+import random
 from datetime import datetime
 from discord.ext import tasks
 
@@ -199,6 +200,12 @@ async def on_message(message):
     if message.content == '/4段階目':
         channel = client.get_channel(ID_CHANNEL_10)
         await channel.send('--------------------4段階目--------------------')  
+        
+    if message.content == "占い":
+#レスポンスされる運勢のリストを作成
+        unsei = ["大吉", "中吉", "吉", "末吉", "小吉", "凶", "大凶"]
+        choice = random.choice(unsei) #randomモジュールでunseiリストからランダムに一つを選出
+        await message.send_message(message.channel, choice) #結果を出力
         
             # 60秒に一回ループ
 @tasks.loop(seconds=60)
