@@ -205,7 +205,7 @@ async def on_message(message):
 #レスポンスされる運勢のリストを作成
         unsei = ["大吉", "中吉", "吉", "末吉", "小吉", "凶", "大凶"]
         choice = random.choice(unsei) #randomモジュールでunseiリストからランダムに一つを選出
-        await message.send_message(message.channel, choice) #結果を出力
+        await message.channel.send(message.channel, choice)
         
             # 60秒に一回ループ
 @tasks.loop(seconds=60)
