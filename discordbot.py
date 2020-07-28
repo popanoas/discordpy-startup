@@ -31,6 +31,19 @@ async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
+     # コマンドを受け取ったときのアクション   
+    if message.content == "/1段階目":
+        await client.send_message(message.channel, "1段階目に入ります")
+        
+    if message.content == "/2段階目":
+        await client.send_message(message.channel, "2段階目に入ります")     
+ 
+    if message.content == "/3段階目":
+        await client.send_message(message.channel, "3段階目に入ります")
+ 
+    if message.content == "/4段階目":
+        await client.send_message(message.channel, "4段階目に入ります")
+        
     # チャンネル1に対するアクション
     if message.content == '/1段階目':
         channel = client.get_channel(ID_CHANNEL_1)
