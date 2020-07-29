@@ -220,7 +220,11 @@ async def on_message(message):
         choice = random.choice(unsei) #randomモジュールでunseiリストからランダムに一つを選出
         await message.channel.send(choice)
         
-
+    if message.content == "ありがとう":
+#レスポンスされる運勢のリストを作成
+        arigatou = ["どういたしまして！", "ありがとう、じゃないよね"]
+        choice = random.choice(arigatou) #randomモジュールでunseiリストからランダムに一つを選出
+        await message.channel.send(choice)
         
 # Botの起動とDiscordサーバーへの接続
 client.run(token)
