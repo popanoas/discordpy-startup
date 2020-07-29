@@ -222,11 +222,10 @@ async def on_message(message):
 
 # 持越し時間の計算
 async def motikosi(boss : int, p1 : int, p2 : int):
-    if boss > p1 + p2:
+    if message.content == '/motikosi':
+    await boss > p1 + p2:
         await bot.say("倒しとら～ん")
         return
     await bot.say(90 - (90 * (boss - p1)/p2) + 20)
 
-
-# Botの起動とDiscordサーバーへの接続
 client.run(token)
