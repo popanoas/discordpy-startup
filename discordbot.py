@@ -219,9 +219,7 @@ async def on_message(message):
         unsei = ["大吉", "中吉", "吉", "末吉", "小吉", "凶", "大凶"]
         choice = random.choice(unsei) #randomモジュールでunseiリストからランダムに一つを選出
         await message.channel.send(choice)
-        
-    if message.content == "ありがとう":
-        await client.send_message(message.channel, "どういたしまして！")
+
         
 # Botの起動とDiscordサーバーへの接続
 client.run(token)
