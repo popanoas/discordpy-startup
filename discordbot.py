@@ -220,18 +220,7 @@ async def on_message(message):
         choice = random.choice(unsei) #randomモジュールでunseiリストからランダムに一つを選出
         await message.channel.send(choice)
         
-            # 60秒に一回ループ
-@tasks.loop(seconds=60)
-async def loop():
-    # 現在の時刻
-    now = datetime.now().strftime('%H:%M')
-    if now == '20:00':
-        channel = cliant.get_channel(CHANNEL_ID)
-        await channel.send('日付が変わりました！タスクキルしたらスタンプを付けましょうね')  
-        await add_reaction(emoji=":crab:")
-                  
-#ループ処理実行
-loop.start()
+
         
 # Botの起動とDiscordサーバーへの接続
 client.run(token)
