@@ -220,11 +220,12 @@ async def on_message(message):
         choice = random.choice(unsei)
         await message.channel.send(choice)
 
-# プレイヤーデータクラス
-class PlayerData:
-    def __init__(self, user, atk_list, atk_cnt_m, atk_cnt_b, done_cnt, task_killed, req_none, notice_req, req_list,
-                 rolled_time, rolled_type, recent_boss):
-        self.rolled_time = rolled_time  # 持越時間
+# 持越し時間の計算
+async def motikosi(boss : int, p1 : int, p2 : int):
+    if boss > p1 + p2:
+        await bot.say("倒しとら～ん")
+        return
+    await bot.say(90 - (90 * (boss - p1)/p2) + 20)
 
 
 # Botの起動とDiscordサーバーへの接続
