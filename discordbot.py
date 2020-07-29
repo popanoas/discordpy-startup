@@ -215,9 +215,9 @@ async def on_message(message):
         await channel.send('--------------------4段階目--------------------')  
         
     if message.content == "占い":
-#レスポンスされる運勢のリストを作成
+#運勢のリストを作成
         unsei = ["大吉", "中吉", "吉", "末吉", "小吉", "凶", "大凶"]
-        choice = random.choice(unsei) #randomモジュールでunseiリストからランダムに一つを選出
+        choice = random.choice(unsei)
         await message.channel.send(choice)
 
 # プレイヤーデータクラス
@@ -226,47 +226,6 @@ class PlayerData:
                  rolled_time, rolled_type, recent_boss):
         self.rolled_time = rolled_time  # 持越時間
 
-# 持ち越しダメージ計算
-async def rollover_simulate(message, msg_content):
-    current_hp = 0
-    expect_dmg = 0
-    is_current_hp = False  # 現在のHP判定
-    is_expected_dmg = False  # 想定ダメージ判定
-    for i in msg_content:
-        # ボス番号読み取って該当ボスのフラグを立てる
-        if not is_expected_dmg and re.match('\d', i):
-            is_current_hp = True
-            current_hp = current_hp * 10 + int(i)
-        if is_expected_dmg and re.match('\d', i):
-            expect_dmg = expect_dmg * 10 + int(i)
-        # 現HP読取後の区切り以降は想定ダメージとして読取
-        if is_current_hp and not is_expected_dmg and (i == '-' or i == 'ー' or i == '－' or i == ' ' or i == '　'):
-            is_expected_dmg = True
 
-    if not expect_dmg:  # 想定ダメージが入力されていない場合、一定秒持越に必要なダメージを出す
-        i = 70
-        reply = '```持越秒数に対して必要なダメージ一覧\n\n'
-        while True:
-            suggested_dmg = current_hp / (1 - i / 90)
-            reply += f"{i + 20}s：{int(suggested_dmg)} 万ダメージ\n"
-            i -= 5
-            if i < 0:
-                break
-        reply += "```"
-        await reply_and_delete(message, reply, DELAY_L)
-        return
-    elif expect_dmg < current_hp:
-        reply = "そのダメージだと倒しきれません"
-        await reply_and_delete(message, reply, DELAY_S)
-        return
-
-    rolled_time = 90 * (1 - current_hp / expect_dmg) + 20
-    if rolled_time >= 90:
-        rolled_time = 90
-
-    reply = "予想される持越時間は " + str(rolled_time) + "秒です"
-    await reply_and_delete(message, reply, DELAY_M)
-    return       
-        
 # Botの起動とDiscordサーバーへの接続
 client.run(token)
