@@ -262,6 +262,17 @@ async def on_message(message):
         choice = random.choice(unsei)
         await message.channel.send(choice)
 
+        
+# 60秒に一回ループ
+@tasks.loop(seconds=60)
+async def loop():
+    # 現在の時刻
+    now = datetime.now().strftime('%H:%M')
+    if now == '20:00':
+        channel = client.get_channel(CHANNEL_ID)
+        await channel.send('日付が変わりました！')  
 
+#ループ処理実行
+loop.start()
 
 client.run(token)
