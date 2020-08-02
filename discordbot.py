@@ -275,7 +275,7 @@ async def on_reaction_remove(reaction,user):
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '21:17':
+    if now == '20:00':
         channel = client.get_channel(CHANNEL_ID)
         await channel.send('おはるる～')  
         new_message = await message.channel.send('おはるる～')
