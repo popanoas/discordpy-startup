@@ -7,7 +7,7 @@ import random
 from datetime import datetime
 from discord.ext import tasks
 
-CHANNEL_ID = 730136347477540908 #毎日朝5時を通知するチャンネルID
+CHANNEL_ID = 731046340674453567 #毎日朝5時を通知するチャンネルID
 ID_CHANNEL_1 = 670294227846037514  # 1チャンネルID（事前設定用）
 ID_CHANNEL_2 = 715596202032496760  # 2チャンネルID（事前設定用）
 ID_CHANNEL_3 = 670294262696509469  # 3チャンネルID（事前設定用）
@@ -267,10 +267,10 @@ async def on_message(message):
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '20:35':
+    if now == '20:40':
         channel = client.get_channel(CHANNEL_ID)
         await channel.send('おはるる～')  
-        await tmp_msg.add_reaction(client.get_emoji(emoji_ID))
+        await add_reaction(client.get_emoji(emoji_ID))
 #ループ処理実行
 loop.start()        
 
