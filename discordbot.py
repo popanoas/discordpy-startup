@@ -279,6 +279,7 @@ async def loop():
         elif event == "remove":
             await ctx.send(f"{user.mention} 様が取り消しました")     
         
+        
 #ループ処理実行
 loop.start()        
 
