@@ -281,16 +281,5 @@ async def on_message(message):
             elif event == "remove":
                 await ctx.send(f"{user.mention} 様が取り消しました")     
 
-                        # 60秒に一回ループ
-@tasks.loop(seconds=60)
-async def loop():
-    # 現在の時刻
-    now = datetime.now().strftime('%H:%M')
-    if now == '22:37':
-        channel = client.get_channel(CHANNEL_ID)
-        await channel.send('おはるる～')  
-                       
-#ループ処理実行
-loop.start() 
 
 client.run(token)
