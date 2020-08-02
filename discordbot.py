@@ -267,20 +267,20 @@ async def on_message(message):
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '21:06':
+    if now == '21:07':
         channel = client.get_channel(CHANNEL_ID)
         await channel.send('おはるる～')  
-    new_message = await message.channel.send('おはるる～')
+        new_message = await message.channel.send('おはるる～')
         await message.add_reaction(emoji=":ok:")
-    while True:
-        event,reaction,user = await client.wait_for("reaction_press",check=check)
-        if event == "add":
-            await ctx.send(f"{user.mention} 様がサポ借り完了しました")
-        elif event == "remove":
-            await ctx.send(f"{user.mention} 様が取り消しました")     
-        
-        
-#ループ処理実行
-loop.start()        
+        while True:
+            event,reaction,user = await client.wait_for("reaction_press",check=check)
+            if event == "add":
+                await ctx.send(f"{user.mention} 様がサポ借り完了しました")
+            elif event == "remove":
+                await ctx.send(f"{user.mention} 様が取り消しました")     
+                
+                
+                #ループ処理実行
+                loop.start()    
 
 client.run(token)
