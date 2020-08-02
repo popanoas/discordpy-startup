@@ -267,7 +267,7 @@ async def on_message(message):
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '20:00':
+    if now == '20:35':
         channel = client.get_channel(CHANNEL_ID)
         await channel.send('おはるる～')  
         await tmp_msg.add_reaction(client.get_emoji(emoji_ID))
