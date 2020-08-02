@@ -270,13 +270,14 @@ async def loop():
     if now == '20:46':
         channel = client.get_channel(CHANNEL_ID)
         await channel.send('おはるる～')  
-        await add_reaction(client.get_emoji(emoji_ID))
+    new_message = await message.channel.send('おはるる～')
+        await message.add_reaction(emoji=":ok:")
     while True:
         event,reaction,user = await bot.wait_for("reaction_press",check=check)
         if event == "add":
-            await ctx.send(f"{user.mention} がリアクションを押した")
+            await ctx.send(f"{user.mention} 様がサポ借り完了しました")
         elif event == "remove":
-            await ctx.send(f"{user.mention} がリアクションを消した")     
+            await ctx.send(f"{user.mention} 様が取り消しました")     
         
 #ループ処理実行
 loop.start()        
