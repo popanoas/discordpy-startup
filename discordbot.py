@@ -260,26 +260,16 @@ async def on_message(message):
         unsei = ["大吉", "中吉", "吉", "末吉", "小吉", "凶", "大凶"]
         choice = random.choice(unsei)
         await message.channel.send(choice)
-
-@client.event
-async def on_reaction_add(reaction,user):
-    client.dispatch("reaction_press","add",reaction,user)
-
-@client.event
-async def on_reaction_remove(reaction,user):
-    client.dispatch("reaction_press","remove",reaction,user)
-    
-
-@client.event
-async def on_message(message):
-        new_message = await message.channel.send('おはるる～')
-        await message.add_reaction(emoji=":ok:")
-        while True:
-            event,reaction,user = await client.wait_for("reaction_press",check=check)
-            if event == "add":
-                await ctx.send(f"{user.mention} 様がサポ借り完了しました")
-            elif event == "remove":
-                await ctx.send(f"{user.mention} 様が取り消しました")     
-
+        
+# 60秒に一回ループ
+@tasks.loop(seconds=60)
+async def loop():
+    # 現在の時刻
+    now = datetime.now().strftime('%H:%M')
+    if now == '22:10':
+        channel = client.get_channel(CHANNEL_ID)
+        await channel.send('おはるる～')  
+#ループ処理実行
+loop.start()    
 
 client.run(token)
