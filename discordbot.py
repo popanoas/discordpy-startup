@@ -18,6 +18,7 @@ ID_CHANNEL_7 = 670294326131032064  # 7チャンネルID（事前設定用）
 ID_CHANNEL_8 = 715596648570552341  # 8チャンネルID（事前設定用）
 ID_CHANNEL_9 = 670294357944958976  # 9チャンネルID（事前設定用）
 ID_CHANNEL_10 = 715596743450034188  # 10チャンネルID（事前設定用）
+emoji_ID = 728923368870510605
 
 token = os.environ['DISCORD_BOT_TOKEN']
 
@@ -269,7 +270,7 @@ async def loop():
     if now == '20:00':
         channel = client.get_channel(CHANNEL_ID)
         await channel.send('おはるる～')  
-
+        await tmp_msg.add_reaction(client.get_emoji(emoji_ID))
 #ループ処理実行
 loop.start()        
 
