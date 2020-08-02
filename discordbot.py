@@ -267,10 +267,17 @@ async def on_message(message):
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '20:40':
+    if now == '20:46':
         channel = client.get_channel(CHANNEL_ID)
         await channel.send('おはるる～')  
         await add_reaction(client.get_emoji(emoji_ID))
+    while True:
+        event,reaction,user = await bot.wait_for("reaction_press",check=check)
+        if event == "add":
+            await ctx.send(f"{user.mention} がリアクションを押した")
+        elif event == "remove":
+            await ctx.send(f"{user.mention} がリアクションを消した")     
+        
 #ループ処理実行
 loop.start()        
 
