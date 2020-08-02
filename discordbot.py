@@ -262,6 +262,14 @@ async def on_message(message):
         choice = random.choice(unsei)
         await message.channel.send(choice)
 
+        
+@client.event
+async def on_reaction_add(reaction,user):
+    client.dispatch("reaction_press","add",reaction,user)
+
+@client.event
+async def on_reaction_remove(reaction,user):
+    client.dispatch("reaction_press","remove",reaction,user)        
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
 async def loop():
