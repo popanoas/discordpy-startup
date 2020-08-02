@@ -273,7 +273,7 @@ async def loop():
     new_message = await message.channel.send('おはるる～')
         await message.add_reaction(emoji=":ok:")
     while True:
-        event,reaction,user = await bot.wait_for("reaction_press",check=check)
+        event,reaction,user = await cliant.wait_for("reaction_press",check=check)
         if event == "add":
             await ctx.send(f"{user.mention} 様がサポ借り完了しました")
         elif event == "remove":
