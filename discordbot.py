@@ -269,13 +269,14 @@ async def on_reaction_add(reaction,user):
 
 @client.event
 async def on_reaction_remove(reaction,user):
-    client.dispatch("reaction_press","remove",reaction,user)        
+    client.dispatch("reaction_press","remove",reaction,user)
+    
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '20:00':
+    if now == '22:10':
         channel = client.get_channel(CHANNEL_ID)
         await channel.send('おはるる～')  
         new_message = await message.channel.send('おはるる～')
@@ -287,8 +288,7 @@ async def loop():
             elif event == "remove":
                 await ctx.send(f"{user.mention} 様が取り消しました")     
                 
-                
-                #ループ処理実行
-                loop.start()    
+#ループ処理実行
+loop.start()    
 
 client.run(token)
