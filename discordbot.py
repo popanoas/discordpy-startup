@@ -274,7 +274,7 @@ async def on_message(message):
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '03:26':
+    if now == '03:29':
         channel = client.get_channel(CHANNEL_ID)
         
         msg = await channel.send('おはるる～')  
