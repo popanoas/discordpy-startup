@@ -264,11 +264,6 @@ async def on_message(message):
         await message.channel.send(choice)
 
         
-@client.event
-async def on_message(message):
-    if message.content.startswith('ありがとう'):
-        reply = 'どういたしまして！'
-        await client.send_message(message.channel, reply)
         
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
