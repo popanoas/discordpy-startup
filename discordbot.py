@@ -260,14 +260,14 @@ async def on_raw_reaction_add(payload):
     if channel.id == ID_Mana:
         guild = client.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id)    
-        await channel.send(member.name + 'はマナ探索を終了しました')  
+        await channel.send(member.name + 'さんは今日のサポートを借り終えました')  
 
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '04:09':
+    if now == '20:00':
         channel = client.get_channel(CHANNEL_ID)
         
         msg = await channel.send('おはるる～')  
