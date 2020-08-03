@@ -6,6 +6,7 @@ import traceback
 import random
 from datetime import datetime
 from discord.ext import tasks
+from discord.ext import commands
 
 CHANNEL_ID = 731046340674453567 #毎日朝5時を通知するチャンネルID
 ID_CHANNEL_1 = 670294227846037514  # 1チャンネルID（事前設定用）
