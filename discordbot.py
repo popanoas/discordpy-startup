@@ -268,7 +268,12 @@ async def on_message(message):
         choice = random.choice(unsei)
         await message.channel.send(choice)
    
-    
+@client.event
+async def on_reaction_add(reaction, user):
+    # author: リアクションがついたメッセージを書いた人
+    author = reaction.message.author
+    await client.send_message(author, f"{user} さんがリアクションをしました")
+
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
 async def loop():
