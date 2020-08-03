@@ -21,6 +21,8 @@ ID_CHANNEL_8 = 715596648570552341  # 8チャンネルID（事前設定用）
 ID_CHANNEL_9 = 670294357944958976  # 9チャンネルID（事前設定用）
 ID_CHANNEL_10 = 715596743450034188  # 10チャンネルID（事前設定用）
 
+emoji = '<:61ok:728923368870510605>'
+
 token = os.environ['DISCORD_BOT_TOKEN']
 
 # 接続に必要なオブジェクトを生成
@@ -273,10 +275,10 @@ async def on_message(message):
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '23:00':
+    if now == '01:20':
         channel = client.get_channel(CHANNEL_ID)
         await channel.send('おはるる～')  
-        await Message.add_reaction(:ok:)
+        await Message.add_reaction(emoji)
         
 #ループ処理実行
 loop.start()    
