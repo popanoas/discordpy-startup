@@ -276,6 +276,8 @@ async def loop():
     if now == '23:00':
         channel = client.get_channel(CHANNEL_ID)
         await channel.send('おはるる～')  
+        await Message.add_reaction(:ok:)
+        
 #ループ処理実行
 loop.start()    
 
