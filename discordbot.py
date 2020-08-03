@@ -262,9 +262,6 @@ async def on_message(message):
         choice = random.choice(unsei)
         await message.channel.send(choice)
 
-@client.command(aliases=['ありがとう', 'ありがとうございます', 'ありがと', 'ty', 'ありがとうございます！', 'ありがと！'])
-async def greetings(ctx):
-    await ctx.send("どういたしまして!" + ctx.message.author.name + "さん！")
         
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
