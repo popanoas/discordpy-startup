@@ -264,7 +264,7 @@ async def on_raw_reaction_add(payload):
         if user.bot:
             return
         else:
-        await channel.send(member.name + 'さんは今日のサポートを借り終えました')  
+            await channel.send(member.name + 'さんは今日のサポートを借り終えました')  
 
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
