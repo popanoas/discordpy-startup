@@ -256,7 +256,7 @@ async def on_message(message):
 @client.event
 async def on_raw_reaction_add(payload):
     # author: リアクションがついたメッセージを書いた人
-    
+    channel = client.get_channel(payload.channel_id)  
     guild = client.get_guild(payload.guild_id)  
     member = guild.get_member(payload.user_id)    
     await channel.send('いらっしゃいませ！')  
