@@ -284,11 +284,6 @@ async def loop():
         
         msg = await channel.send('おはるる～')  
         await msg.add_reaction(emoji) 
-        def check (reaction, user):
-            return user == msg.author and str(reaction.emoji) == ID_emoji
-        
-        reaction,user = await client.wait_for('reaction_add', check=check)
-        await channel.send('あ') 
         
 #ループ処理実行
 loop.start()    
