@@ -268,18 +268,39 @@ async def on_message(message):
         choice = random.choice(unsei)
         await message.channel.send(choice)
 
-        
-        
+@client.event
+async def on_reaction_add(reaction,user):
+    client.dispatch("reaction_press","add",reaction,user)
+
+@client.event
+async def on_reaction_remove(reaction,user):
+    client.dispatch("reaction_press","remove",reaction,user)
+    
+@client.command()
+async def cmd(ctx):
+    def check(event,reaction,user):
+        return str(reaction.emoji) == emoji and not user.bot
+    while True:
+        event,reaction,user = await client.wait_for("reaction_press",check=check)
+        if event == "add":
+            await ctx.send(f"{user.mention} がリアクションを押した")
+        elif event == "remove":
+            await ctx.send(f"{user.mention} がリアクションを消した")       
+    
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '02:27':
+    if now == '03:09':
         channel = client.get_channel(CHANNEL_ID)
         
         msg = await channel.send('おはるる～')  
-        await msg.add_reaction(emoji)
+        await msg.add_reaction(emoji) 
+    while True:
+        reaction, user = await client.wait_for('reaction_add', check=check)
+        await channel.send(user.id + 'リアクションを押した')
+        
 #ループ処理実行
 loop.start()    
 
