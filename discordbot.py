@@ -35,21 +35,6 @@ async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
-     # コマンドを受け取ったときのアクション   
-    if message.content == "/1段階目":
-        await message.send(message.channel, "1段階目に入ります")
-        
-    if message.content == "/2段階目":
-        await message.send(message.channel, "2段階目に入ります")     
- 
-    if message.content == "/3段階目":
-        await message.send(message.channel, "3段階目に入ります")
- 
-    if message.content == "/4段階目":
-        await message.send(message.channel, "4段階目に入ります")
-        
-    if message.content == "/8月クランバトル":
-        await message.send(message.channel, "8月クランバトルの準備を開始します")
         
     # チャンネル1に対するアクション
     if message.content == '/1段階目':
