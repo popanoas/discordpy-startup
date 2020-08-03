@@ -22,7 +22,7 @@ ID_CHANNEL_9 = 670294357944958976  # 9チャンネルID（事前設定用）
 ID_CHANNEL_10 = 715596743450034188  # 10チャンネルID（事前設定用）
 
 ID_emoji = '<:61ok:728923368870510605>'
-
+ID_Mana = 730136347477540908
 token = os.environ['DISCORD_BOT_TOKEN']
 
 # 接続に必要なオブジェクトを生成
@@ -256,10 +256,11 @@ async def on_message(message):
 @client.event
 async def on_raw_reaction_add(payload):
     # author: リアクションがついたメッセージを書いた人
-    channel = client.get_channel(payload.channel_id)  
-    guild = client.get_guild(payload.guild_id)  
-    member = guild.get_member(payload.user_id)    
-    await channel.send('いらっしゃいませ！')  
+    channel = client.get_channel(payload.channel_id)
+    if channel.id != ID_Mana:
+        guild = client.get_guild(payload.guild_id)  
+        member = guild.get_member(payload.user_id)    
+        await channel.send(user + 'はマナ探索を終了しました')  
 
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
