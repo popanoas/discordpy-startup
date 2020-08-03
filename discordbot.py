@@ -268,10 +268,10 @@ async def on_message(message):
     if client.user != message.author:
         if message.content.startswith("ありがとう"):
             m = "どういたしまして！" + message.author.name + "さん！"
-            await client.send_message(message.channel, m)
+            await client.send(message.channel, m)
         if message.content.startswith("ありがとうございます！"):
             m = "どういたしまして！" + message.author.name + "さん！"
-            await client.send_message(message.channel, m)
+            await client.send(message.channel, m)
         
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
