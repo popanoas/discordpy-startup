@@ -267,25 +267,7 @@ async def on_message(message):
         unsei = ["大吉", "中吉", "吉", "末吉", "小吉", "凶", "大凶"]
         choice = random.choice(unsei)
         await message.channel.send(choice)
-
-@client.event
-async def on_reaction_add(reaction,user):
-    client.dispatch("reaction_press","add",reaction,user)
-
-@client.event
-async def on_reaction_remove(reaction,user):
-    client.dispatch("reaction_press","remove",reaction,user)
-    
-@client.command()
-async def cmd(ctx):
-    def check(event,reaction,user):
-        return str(reaction.emoji) == emoji and not user.bot
-    while True:
-        event,reaction,user = await client.wait_for("reaction_press",check=check)
-        if event == "add":
-            await ctx.send(f"{user.mention} がリアクションを押した")
-        elif event == "remove":
-            await ctx.send(f"{user.mention} がリアクションを消した")       
+   
     
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
