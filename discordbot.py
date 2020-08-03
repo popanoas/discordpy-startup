@@ -292,7 +292,7 @@ async def cmd(ctx):
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '03:09':
+    if now == '03:19':
         channel = client.get_channel(CHANNEL_ID)
         
         msg = await channel.send('おはるる～')  
