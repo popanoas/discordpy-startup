@@ -275,8 +275,8 @@ async def on_reaction_add(payload):
     member = guild.get_member(payload.user_id)
     await channel.send('リアクションを押しました')
     # author: リアクションがついたメッセージを書いた人
-    author = reaction.message.author
-    await client.send(user.id + "さんがリアクションをしました")
+    #author = reaction.message.author
+    #await client.send(user.id + "さんがリアクションをしました")
 
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
