@@ -261,10 +261,7 @@ async def on_raw_reaction_add(payload):
         guild = client.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id)    
         user = client.get_user(payload.message_id)
-        if user.bot:
-            return
-        else:
-            await channel.send(member.name + 'さんは今日のサポートを借り終えました')  
+        await channel.send(member.name + 'さんは今日のサポートを借り終えました')  
 
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
