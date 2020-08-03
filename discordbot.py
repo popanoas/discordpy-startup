@@ -254,10 +254,12 @@ async def on_message(message):
         await message.channel.send(choice)
    
 @client.event
-async def on_raw_reaction_add(reaction, user):
+async def on_raw_reaction_add(payload):
     # author: リアクションがついたメッセージを書いた人
-    author = reaction.message.author
-    await client.send_message(author, f"{user} さんがリアクションをしました")
+    
+    guild = client.get_guild(payload.guild_id)  
+    member = guild.get_member(payload.user_id)    
+    await channel.send('いらっしゃいませ！')  
 
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
