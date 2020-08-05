@@ -271,7 +271,7 @@ async def loop():
     if now == '20:00':
         channel = client.get_channel(CHANNEL_ID)
         
-        msg = await channel.send('おはるる～')  
+        msg = await channel.send('日付が変わりました！サポ借りが終わったらリアクションを付けてね♡')  
         await msg.add_reaction(ID_emoji) 
         
 #ループ処理実行
