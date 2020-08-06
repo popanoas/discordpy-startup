@@ -264,14 +264,14 @@ async def on_raw_reaction_add(payload):
         if user.bot:
             return
         else:
-            await channel.send(member.name + 'さんがサポートを借り終えました')  
+            await channel.send(member.name + 'さんがサポートを借り終えました♡')  
 
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '20:00':
+    if now == '05:00':
         channel = client.get_channel(CHANNEL_ID)
         
         msg = await channel.send('日付が変わりました！サポ借りが終わったらリアクションを付けてね♡')  
