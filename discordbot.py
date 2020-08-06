@@ -271,7 +271,7 @@ async def on_raw_reaction_add(payload):
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '05:05':
+    if now == '20:00':
         channel = client.get_channel(CHANNEL_ID)
         
         msg = await channel.send('日付が変わりました！サポ借りが終わったらリアクションを付けてね♡')  
