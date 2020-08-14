@@ -264,7 +264,7 @@ async def on_raw_reaction_add(payload):
         if user.bot:
             return
         else:
-            await channel.send(member.name + 'さんがサポートを借り終えました♡')  
+            await channel.send(member.name + 'さんが記入しました♡')  
 
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
@@ -274,7 +274,7 @@ async def loop():
     if now == '05:00':
         channel = client.get_channel(CHANNEL_ID)
         
-        msg = await channel.send('日付が変わりました！サポ借りが終わったらリアクションを付けてね♡')  
+        msg = await channel.send('日付が変わりました！記入が終わったらリアクションを付けてね♡ \n https://docs.google.com/spreadsheets/d/1nCdtFHS-60WcRZDx8hTXHFm3mPuEqefntQxeRfM2Lv0/edit#gid=632518118')  
         await msg.add_reaction(ID_emoji) 
         
 #ループ処理実行
