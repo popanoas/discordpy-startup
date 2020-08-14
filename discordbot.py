@@ -271,7 +271,7 @@ async def on_raw_reaction_add(payload):
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '05:00':
+    if now == '05:':
         channel = client.get_channel(CHANNEL_ID)
         
         msg = await channel.send('日付が変わりました！記入が終わったらリアクションを付けてね♡ \n https://docs.google.com/spreadsheets/d/1nCdtFHS-60WcRZDx8hTXHFm3mPuEqefntQxeRfM2Lv0/edit#gid=632518118')  
