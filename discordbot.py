@@ -273,7 +273,7 @@ async def on_raw_reaction_add(payload):
         guild = client.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id)    
         user = client.get_user(payload.user_id)
-        if payload.emoji.name == ID_emoji_zange:
+        if payload.emoji.id == ID_emoji_zange:
             await channel.send("父と子とゴデチアのみ名によって、あなたの罪をゆるします。アーメン。安心して行きなさい")
 
 # 60秒に一回ループ
