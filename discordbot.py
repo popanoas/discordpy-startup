@@ -263,17 +263,19 @@ async def on_raw_reaction_add(payload):
         guild = client.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id)    
         user = client.get_user(payload.user_id)
+        message = await client.get_channel(payload.channel_id).fetch_message(payload.message_id)
+
         
         if user.bot:
             return
         else:
             text = member.name + 'さんが記入しました♡'  
 
-@client.event
-async def on_reaction_add(self, reaction, user):
+# @client.event
+# async def on_reaction_add(self, reaction, user):
     if channel.id == ID_CHANNEL_ZANGE:
-        if reaction.emoji == '\N{GRINNING FACE}':
-            text = "父と子とゴデチアのみ名によって、" + reaction.message.author + "の罪をゆるします。アーメン。安心して行きなさい"
+        if payload.emoji.name == '\N{GRINNING FACE}':
+            text = "父と子とゴデチアのみ名によって、" + message.author + "の罪をゆるします。アーメン。安心して行きなさい"
 
     await channel.send(text)
 # 60秒に一回ループ
