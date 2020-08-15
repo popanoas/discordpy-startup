@@ -259,11 +259,12 @@ async def on_message(message):
 async def on_raw_reaction_add(payload):
     # author: リアクションがついたメッセージを書いた人
     channel = client.get_channel(payload.channel_id)
+    message = await client.get_channel(payload.channel_id).fetch_message(payload.message_id)
     if channel.id == ID_Mana:
         guild = client.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id)    
         user = client.get_user(payload.user_id)
-        message = await client.get_channel(payload.channel_id).fetch_message(payload.message_id)
+        
 
         
         if user.bot:
@@ -275,7 +276,7 @@ async def on_raw_reaction_add(payload):
 # async def on_reaction_add(self, reaction, user):
     if channel.id == ID_CHANNEL_ZANGE:
         if payload.emoji.name == '\N{GRINNING FACE}':
-            text = "父と子とゴデチアのみ名によって、" + message.author + "の罪をゆるします。アーメン。安心して行きなさい"
+            text = "父と子とゴデチアのみ名によって、" + message.author.name + "の罪をゆるします。アーメン。安心して行きなさい"
 
     await channel.send(text)
 # 60秒に一回ループ
