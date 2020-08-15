@@ -20,9 +20,11 @@ ID_CHANNEL_7 = 670294326131032064  # 7チャンネルID（事前設定用）
 ID_CHANNEL_8 = 715596648570552341  # 8チャンネルID（事前設定用）
 ID_CHANNEL_9 = 670294357944958976  # 9チャンネルID（事前設定用）
 ID_CHANNEL_10 = 715596743450034188  # 10チャンネルID（事前設定用）
+ID_CHANNEL_ZANGE = 741739653245173800 #懺悔部屋のチャンネルID
 
 ID_emoji = '<:61ok:728923368870510605>'
 ID_Mana = 730136347477540908
+ID_emoji_zange = '<:61ok:728923368870510605>'
 token = os.environ['DISCORD_BOT_TOKEN']
 
 # 接続に必要なオブジェクトを生成
@@ -261,10 +263,18 @@ async def on_raw_reaction_add(payload):
         guild = client.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id)    
         user = client.get_user(payload.user_id)
+        
         if user.bot:
             return
         else:
             await channel.send(member.name + 'さんが記入しました♡')  
+
+    if channel.id == ID_CHANNEL_ZANGE:
+        guild = client.get_guild(payload.guild_id)  
+        member = guild.get_member(payload.user_id)    
+        user = client.get_user(payload.user_id)
+        if payload.emohi.name == ID_emoji_zange:
+            await channel.send("父と子とゴデチアのみ名によって、あなたの罪をゆるします。アーメン。安心して行きなさい")
 
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
@@ -276,7 +286,8 @@ async def loop():
         
         msg = await channel.send('日付が変わりました！記入が終わったらリアクションを付けてね♡ \n https://docs.google.com/spreadsheets/d/1nCdtFHS-60WcRZDx8hTXHFm3mPuEqefntQxeRfM2Lv0/edit#gid=632518118')  
         await msg.add_reaction(ID_emoji) 
-        
+
+
 #ループ処理実行
 loop.start()    
 
