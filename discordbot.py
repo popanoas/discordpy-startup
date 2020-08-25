@@ -10,6 +10,7 @@ from discord.ext import commands
 import threading
 
 CHANNEL_ID = 730136347477540908 #毎日朝5時を通知するチャンネルID
+CHANNEL_ID2 = 726398497384824853 #タスクキルチャンネル
 ID_CHANNEL_1 = 670294227846037514  # 1チャンネルID（事前設定用）
 ID_CHANNEL_2 = 715596202032496760  # 2チャンネルID（事前設定用）
 ID_CHANNEL_3 = 670294262696509469  # 3チャンネルID（事前設定用）
@@ -24,6 +25,7 @@ ID_CHANNEL_ZANGE = 741739653245173800 #懺悔部屋のチャンネルID
 
 ID_emoji = '<:61ok:728923368870510605>'
 ID_Mana = 730136347477540908
+ID_taskkill = 726398497384824853
 ID_emoji_zange = '<:61ok:728923368870510605>'
 token = os.environ['DISCORD_BOT_TOKEN']
 
@@ -264,14 +266,23 @@ async def on_raw_reaction_add(payload):
         guild = client.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id)    
         user = client.get_user(payload.user_id)
-        
-
-        
+                
         if user.bot:
             return
         else:
             text = member.name + 'さんが記入しました♡'  
 
+            
+    if channel.id == ID_taskkill:
+        guild = client.get_guild(payload.guild_id)  
+        member = guild.get_member(payload.user_id)    
+        user = client.get_user(payload.user_id)
+        
+
+        if user.bot:
+            return
+        else:
+            text = member.name + 'さんがタスクキルをしました♡'  
 # @client.event
 # async def on_reaction_add(self, reaction, user):
     if channel.id == ID_CHANNEL_ZANGE:
@@ -286,11 +297,13 @@ async def loop():
     now = datetime.now().strftime('%H:%M')
     if now == '05:00':
         channel = client.get_channel(CHANNEL_ID)
-        
         msg = await channel.send('日付が変わりました！記入が終わったらリアクションを付けてね♡ \n https://docs.google.com/spreadsheets/d/1nCdtFHS-60WcRZDx8hTXHFm3mPuEqefntQxeRfM2Lv0/edit#gid=632518118')  
         await msg.add_reaction(ID_emoji) 
 
-
+        channel = client.get_channel(CHANNEL_ID2)
+        msg = await channel.send('日付が変わりました！タスクキルしたらリアクションを付けてね♡')  
+        await msg.add_reaction(ID_emoji) 
+        
 #ループ処理実行
 loop.start()    
 
