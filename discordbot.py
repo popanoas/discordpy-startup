@@ -297,7 +297,6 @@ async def on_message(message):
             num_random = random.randrange(1,100)
             m = str(num_random)
             await client.send_message(message.channel, m)      
-    await channel.send(text)
     
     
 # 60秒に一回ループ
