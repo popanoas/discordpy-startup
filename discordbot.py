@@ -289,14 +289,7 @@ async def on_raw_reaction_add(payload):
         if payload.emoji.name == '\N{GRINNING FACE}':
             text = "父と子とゴデチアのみ名によって、" + message.author.name + "の罪をゆるします。アーメン。安心して行きなさい"
 
-            
-@client.event
-async def on_message(message):
-    if message.content.startswith("/dice"): 
-        if client.user != message.author:
-            num_random = random.randrange(1,100)
-            m = str(num_random)
-            await client.send_message(message.channel, m)      
+           
     
     
 # 60秒に一回ループ
