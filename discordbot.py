@@ -301,7 +301,7 @@ async def loop():
         await msg.add_reaction(ID_emoji) 
 
         channel = client.get_channel(CHANNEL_ID2)
-        msg = await channel.send('日付が変わりました！タスクキルしたらリアクションを付けてね♡')  
+        msg = await channel.send('------------------------------------------------------------ \n 日付が変わりました！タスクキルしたらリアクションを付けてね♡')  
         await msg.add_reaction(ID_emoji) 
         
 #ループ処理実行
