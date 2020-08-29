@@ -288,10 +288,7 @@ async def on_raw_reaction_add(payload):
     if channel.id == ID_CHANNEL_ZANGE:
         if payload.emoji.name == '\N{GRINNING FACE}':
             text = "父と子とゴデチアのみ名によって、" + message.author.name + "の罪をゆるします。アーメン。安心して行きなさい"
-
-    await channel.send(text)       
-    
-    
+    await channel.send(text)
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
 async def loop():
@@ -303,6 +300,7 @@ async def loop():
         await msg.add_reaction(ID_emoji) 
 
         channel = client.get_channel(CHANNEL_ID2)
+        msg = await channel.send('日付が変わりました！タスクキルしたらリアクションを付けてね♡')  
         msg = await channel.send('------------------------------------------------------------ \n 日付が変わりました！タスクキルしたらリアクションを付けてね♡')  
         await msg.add_reaction(ID_emoji) 
         
