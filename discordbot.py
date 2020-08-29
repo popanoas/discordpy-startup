@@ -289,7 +289,7 @@ async def on_raw_reaction_add(payload):
         if payload.emoji.name == '\N{GRINNING FACE}':
             text = "父と子とゴデチアのみ名によって、" + message.author.name + "の罪をゆるします。アーメン。安心して行きなさい"
 
-           
+    await channel.send(text)       
     
     
 # 60秒に一回ループ
