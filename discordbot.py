@@ -57,9 +57,9 @@ async def on_message(message):
         channel = client.get_channel(ID_CHANNEL_1)
         await channel.send('--------------------4段階目--------------------')
     
-    if message.content == '/8月':
+    if message.content == '/9月':
         channel = client.get_channel(ID_CHANNEL_1)
-        await channel.send('--------------------8月--------------------') 
+        await channel.send('--------------------9月--------------------') 
         
     # チャンネル2に対するアクション
     if message.content == '/1段階目':
@@ -78,9 +78,9 @@ async def on_message(message):
         channel = client.get_channel(ID_CHANNEL_2)
         await channel.send('--------------------4段階目--------------------')     
         
-    if message.content == '/8月':
+    if message.content == '/9月':
         channel = client.get_channel(ID_CHANNEL_2)
-        await channel.send('--------------------8月--------------------') 
+        await channel.send('--------------------9月--------------------') 
         
     # チャンネル3に対するアクション
     if message.content == '/1段階目':
@@ -99,9 +99,9 @@ async def on_message(message):
         channel = client.get_channel(ID_CHANNEL_3)
         await channel.send('--------------------4段階目--------------------')
         
-    if message.content == '/8月':
+    if message.content == '/9月':
         channel = client.get_channel(ID_CHANNEL_3)
-        await channel.send('--------------------8月--------------------')   
+        await channel.send('--------------------9月--------------------')   
         
     # チャンネル4に対するアクション
     if message.content == '/1段階目':
@@ -120,9 +120,9 @@ async def on_message(message):
         channel = client.get_channel(ID_CHANNEL_4)
         await channel.send('--------------------4段階目--------------------')   
         
-    if message.content == '/8月':
+    if message.content == '/9月':
         channel = client.get_channel(ID_CHANNEL_4)
-        await channel.send('--------------------8月--------------------') 
+        await channel.send('--------------------9月--------------------') 
     
     # チャンネル5に対するアクション
     if message.content == '/1段階目':
@@ -141,9 +141,9 @@ async def on_message(message):
         channel = client.get_channel(ID_CHANNEL_5)
         await channel.send('--------------------4段階目--------------------')   
  
-    if message.content == '/8月':
+    if message.content == '/9月':
         channel = client.get_channel(ID_CHANNEL_5)
-        await channel.send('--------------------8月--------------------') 
+        await channel.send('--------------------9月--------------------') 
         
     # チャンネル6に対するアクション
     if message.content == '/1段階目':
@@ -162,9 +162,9 @@ async def on_message(message):
         channel = client.get_channel(ID_CHANNEL_6)
         await channel.send('--------------------4段階目--------------------')   
         
-    if message.content == '/8月':
+    if message.content == '/9月':
         channel = client.get_channel(ID_CHANNEL_6)
-        await channel.send('--------------------8月--------------------') 
+        await channel.send('--------------------9月--------------------') 
         
     # チャンネル7に対するアクション
     if message.content == '/1段階目':
@@ -183,9 +183,9 @@ async def on_message(message):
         channel = client.get_channel(ID_CHANNEL_7)
         await channel.send('--------------------4段階目--------------------')
         
-    if message.content == '/8月':
+    if message.content == '/9月':
         channel = client.get_channel(ID_CHANNEL_7)
-        await channel.send('--------------------8月--------------------') 
+        await channel.send('--------------------9月--------------------') 
         
     # チャンネル8に対するアクション
     if message.content == '/1段階目':
@@ -204,9 +204,9 @@ async def on_message(message):
         channel = client.get_channel(ID_CHANNEL_8)
         await channel.send('--------------------4段階目--------------------')     
         
-    if message.content == '/8月':
+    if message.content == '/9月':
         channel = client.get_channel(ID_CHANNEL_8)
-        await channel.send('--------------------8月--------------------')    
+        await channel.send('--------------------9月--------------------')    
 
     # チャンネル9に対するアクション
     if message.content == '/1段階目':
@@ -225,9 +225,9 @@ async def on_message(message):
         channel = client.get_channel(ID_CHANNEL_9)
         await channel.send('--------------------4段階目--------------------')
         
-    if message.content == '/8月':
+    if message.content == '/9月':
         channel = client.get_channel(ID_CHANNEL_9)
-        await channel.send('--------------------8月--------------------') 
+        await channel.send('--------------------9月--------------------') 
  
     # チャンネル10に対するアクション
     if message.content == '/1段階目':
@@ -246,9 +246,9 @@ async def on_message(message):
         channel = client.get_channel(ID_CHANNEL_10)
         await channel.send('--------------------4段階目--------------------') 
         
-    if message.content == '/8月':
+    if message.content == '/9月':
         channel = client.get_channel(ID_CHANNEL_10)
-        await channel.send('--------------------8月--------------------') 
+        await channel.send('--------------------9月--------------------') 
         
         
     if message.content == "占い":
