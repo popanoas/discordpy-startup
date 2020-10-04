@@ -11,21 +11,21 @@ import threading
 
 CHANNEL_ID = 730136347477540908 #毎日朝5時を通知するチャンネルID
 CHANNEL_ID2 = 726398497384824853 #タスクキルチャンネル
-ID_CHANNEL_1 = 670294227846037514  # 1チャンネルID（事前設定用）
-ID_CHANNEL_2 = 715596202032496760  # 2チャンネルID（事前設定用）
-ID_CHANNEL_3 = 670294262696509469  # 3チャンネルID（事前設定用）
-ID_CHANNEL_4 = 715596251927675023  # 4チャンネルID（事前設定用）
-ID_CHANNEL_5 = 670294289028350012  # 5チャンネルID（事前設定用）
-ID_CHANNEL_6 = 715596307762380811  # 6チャンネルID（事前設定用）
-ID_CHANNEL_7 = 670294326131032064  # 7チャンネルID（事前設定用）
-ID_CHANNEL_8 = 715596648570552341  # 8チャンネルID（事前設定用）
-ID_CHANNEL_9 = 670294357944958976  # 9チャンネルID（事前設定用）
-ID_CHANNEL_10 = 715596743450034188  # 10チャンネルID（事前設定用）
-ID_CHANNEL_ZANGE = 741739653245173800 #懺悔部屋のチャンネルID
+#ID_CHANNEL_1 = 670294227846037514  # 1チャンネルID（事前設定用）
+#ID_CHANNEL_2 = 715596202032496760  # 2チャンネルID（事前設定用）
+#ID_CHANNEL_3 = 670294262696509469  # 3チャンネルID（事前設定用）
+#ID_CHANNEL_4 = 715596251927675023  # 4チャンネルID（事前設定用）
+#ID_CHANNEL_5 = 670294289028350012  # 5チャンネルID（事前設定用）
+#ID_CHANNEL_6 = 715596307762380811  # 6チャンネルID（事前設定用）
+#ID_CHANNEL_7 = 670294326131032064  # 7チャンネルID（事前設定用）
+#ID_CHANNEL_8 = 715596648570552341  # 8チャンネルID（事前設定用）
+#ID_CHANNEL_9 = 670294357944958976  # 9チャンネルID（事前設定用）
+#ID_CHANNEL_10 = 715596743450034188  # 10チャンネルID（事前設定用）
+#ID_CHANNEL_ZANGE = 741739653245173800 #懺悔部屋のチャンネルID
 
 ID_emoji = '<:61ok:728923368870510605>'
-ID_Mana = 730136347477540908
-ID_taskkill = 726398497384824853
+ID_Mana = 730136347477540908　#ランドソル杯報告所のID
+ID_taskkill = 726398497384824853　#タスクキル管理所のID
 ID_emoji_zange = '<:61ok:728923368870510605>'
 token = os.environ['DISCORD_BOT_TOKEN']
 
@@ -283,22 +283,26 @@ async def on_raw_reaction_add(payload):
             return
         else:
             text = member.name + 'さんがタスクキルをしました♡'  
+            
 @client.event
 async def on_reaction_add(self, reaction, user):
     if channel.id == ID_CHANNEL_ZANGE:
         if payload.emoji.name == '\N{GRINNING FACE}':
             text = "父と子とゴデチアのみ名によって、" + message.author.name + "の罪をゆるします。アーメン。安心して行きなさい"
     await channel.send(text)
+    
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
     if now == '05:00':
+        #ランドソル杯データ入力
         #channel = client.get_channel(CHANNEL_ID)
         #msg = await channel.send('日付が変わりました！記入が終わったらリアクションを付けてね♡ \n https://docs.google.com/spreadsheets/d/1nCdtFHS-60WcRZDx8hTXHFm3mPuEqefntQxeRfM2Lv0/edit#gid=632518118')  
         #await msg.add_reaction(ID_emoji) 
 
+        #タスクキル管理
         channel = client.get_channel(CHANNEL_ID2)
         msg = await channel.send('------------------------------------------------------------ \n 日付が変わりました！タスクキルしたらリアクションを付けてね♡')  
         await msg.add_reaction(ID_emoji) 
