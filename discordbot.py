@@ -21,8 +21,7 @@ ID_CHANNEL_7 = 670294326131032064  # 7チャンネルID（事前設定用）
 ID_CHANNEL_8 = 715596648570552341  # 8チャンネルID（事前設定用）
 ID_CHANNEL_9 = 670294357944958976  # 9チャンネルID（事前設定用）
 ID_CHANNEL_10 = 715596743450034188  # 10チャンネルID（事前設定用）
-ID_CHANNEL_11 = 748191968634470420
-ID_CHANNEL_12 = 731046340674453567
+ID_CHANNEL_11 = 748191968634470420,731046340674453567
 ID_CHANNEL_ZANGE = 741739653245173800 #懺悔部屋のチャンネルID
 
 ID_emoji = '<:61ok:728923368870510605>'
@@ -253,7 +252,7 @@ async def on_message(message):
         await channel.send('--------------------9月--------------------') 
 
     if message.content == '/test':
-        channel = client.get_channel(ID_CHANNEL_11 , ID_CHANNEL_12)
+        channel = client.get_channel(ID_CHANNEL_11)
         await channel.send('テスト') 
         
     if message.content == "占い":
