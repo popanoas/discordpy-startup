@@ -28,6 +28,9 @@ ID_tk = '<:syarururage:737890640519495712>'
 ID_taskkill = 726398497384824853
 ID_Mana = 730136347477540908
 ID_emoji_zange = '<:61ok:728923368870510605>'
+ID_1 = '<:59na:726842370116812850>'
+ID_2 = '<:58no:726842380673876091>'
+ID_3 = '<:57ra:726842390949789696>'
 
 token = os.environ['DISCORD_BOT_TOKEN']
 
@@ -315,9 +318,9 @@ async def loop():
         msg = await channel.send('------------------------------------------------------------ \n 日付が変わりました！今日も頑張りましょう♡') 
     
         msg = await channel.send('今日の凸状況')
-        await msg.add_reaction(:one:)
-        await msg.add_reaction(:two:)
-        await msg.add_reaction(:three:)
+        await msg.add_reaction(ID_1)
+        await msg.add_reaction(ID_2)
+        await msg.add_reaction(ID_3)
         
         msg = await channel.send('今日のタスクキル')
         await msg.add_reaction(ID_tk)
