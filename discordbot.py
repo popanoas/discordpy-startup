@@ -10,7 +10,7 @@ from discord.ext import commands
 import threading
 
 CHANNEL_ID = 730136347477540908 #毎日朝5時を通知するチャンネルID
-CHANNEL_ID2 = 726398497384824853 #タスクキルチャンネル
+CHANNEL_ID2 = 731046340674453567 #タスクキルチャンネル
 #ID_CHANNEL_1 = 670294227846037514  # 1チャンネルID（事前設定用）
 #ID_CHANNEL_2 = 715596202032496760  # 2チャンネルID（事前設定用）
 #ID_CHANNEL_3 = 670294262696509469  # 3チャンネルID（事前設定用）
@@ -261,9 +261,9 @@ async def on_message(message):
         msg = await channel.send('------------------------------------------------------------ \n 日付が変わりました！今日も頑張りましょう♡') 
     
         msg = await channel.send('今日の凸状況')
-        await msg.add_reaction(ID_totu1)
-        await msg.add_reaction(ID_totu2)
-        await msg.add_reaction(ID_totu3)
+        await msg.add_reaction(ID_1)
+        await msg.add_reaction(ID_2)
+        await msg.add_reaction(ID_3)
         
         msg = await channel.send('今日のタスクキル')
         await msg.add_reaction(ID_tk)
