@@ -24,11 +24,12 @@ CHANNEL_ID2 = 726398497384824853 #タスクキルチャンネル
 #ID_CHANNEL_ZANGE = 741739653245173800 #懺悔部屋のチャンネルID
 
 ID_emoji = '<:61ok:728923368870510605>'
-ID_totu1 =  ':one:'
-ID_totu2 =  ':two:'
-ID_totu3 =  ':three:'
+ID_totu1 = ':one:'
+ID_totu2 = ':two:'
+ID_totu3 = ':three:'
 ID_tk = '<:syarururage:737890640519495712>'
 ID_taskkill = 726398497384824853　#タスクキル管理所のID
+ID_Mana = 730136347477540908　#ランドソル杯報告所のID
 ID_emoji_zange = '<:61ok:728923368870510605>'
 
 token = os.environ['DISCORD_BOT_TOKEN']
