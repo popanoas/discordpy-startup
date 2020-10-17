@@ -24,9 +24,14 @@ CHANNEL_ID2 = 726398497384824853 #タスクキルチャンネル
 #ID_CHANNEL_ZANGE = 741739653245173800 #懺悔部屋のチャンネルID
 
 ID_emoji = '<:61ok:728923368870510605>'
+ID_totu1 =  ':one:'
+ID_totu2 =  ':two:'
+ID_totu3 =  ':three:'
+ID_tk = '<:syarururage:737890640519495712>'
 ID_Mana = 730136347477540908　#ランドソル杯報告所のID
 ID_taskkill = 726398497384824853　#タスクキル管理所のID
 ID_emoji_zange = '<:61ok:728923368870510605>'
+
 token = os.environ['DISCORD_BOT_TOKEN']
 
 # 接続に必要なオブジェクトを生成
@@ -251,13 +256,19 @@ async def on_message(message):
         await channel.send('--------------------9月--------------------') 
 
         
-    if message.content == "占い":
-#運勢のリストを作成
-        unsei = ["大吉", "中吉", "吉", "末吉", "小吉", "凶", "大凶"]
-        choice = random.choice(unsei)
-        await message.channel.send(choice)
+    if message.content == "/kurabatotest":
+        channel = client.get_channel(CHANNEL_ID2)
+        msg = await channel.send('------------------------------------------------------------ \n 日付が変わりました！今日も頑張りましょう♡') 
+    
+        msg = await channel.send('今日の凸状況')
+        await msg.add_reaction(ID_totu1)
+        await msg.add_reaction(ID_totu2)
+        await msg.add_reaction(ID_totu3)
+        
+        msg = await channel.send('今日のタスクキル')
+        await msg.add_reaction(ID_tk)
    
-@client.event
+#@client.event
 async def on_raw_reaction_add(payload):
     # author: リアクションがついたメッセージを書いた人
     channel = client.get_channel(payload.channel_id)
@@ -302,10 +313,17 @@ async def loop():
         #msg = await channel.send('日付が変わりました！記入が終わったらリアクションを付けてね♡ \n https://docs.google.com/spreadsheets/d/1nCdtFHS-60WcRZDx8hTXHFm3mPuEqefntQxeRfM2Lv0/edit#gid=632518118')  
         #await msg.add_reaction(ID_emoji) 
 
-        #タスクキル管理
+        #凸、タスクキル管理
         channel = client.get_channel(CHANNEL_ID2)
-        msg = await channel.send('------------------------------------------------------------ \n 日付が変わりました！タスクキルしたらリアクションを付けてね♡')  
-        await msg.add_reaction(ID_emoji) 
+        msg = await channel.send('------------------------------------------------------------ \n 日付が変わりました！今日も頑張りましょう♡') 
+    
+        msg = await channel.send('今日の凸状況')
+        await msg.add_reaction(ID_totu1)
+        await msg.add_reaction(ID_totu2)
+        await msg.add_reaction(ID_totu3)
+        
+        msg = await channel.send('今日のタスクキル')
+        await msg.add_reaction(ID_tk)
         
 #ループ処理実行
 loop.start()    
