@@ -94,6 +94,7 @@ async def on_reaction_add(self, reaction, user):
         if payload.emoji.name == '\N{GRINNING FACE}':
             text = "父と子とゴデチアのみ名によって、" + message.author.name + "の罪をゆるします。アーメン。安心して行きなさい"
     await channel.send(text)
+    
 @client.event  
 async def on_raw_reaction_add(payload):  
     channel = client.get_channel(payload.channel_id)  
