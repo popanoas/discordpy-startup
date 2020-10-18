@@ -115,19 +115,19 @@ async def on_reaction_add(payload):
             role = guild.get_role(ID_role_1)  
             await member.add_roles(role)  
 
-        if payload.emoji.name == ID_2
+        if payload.emoji.name == '\N{GRINNING FACE}':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_2)  
             await member.add_roles(role) 
             
-        if payload.emoji.name == ID_3
+        if payload.emoji.name == '\N{GRINNING FACE}':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_3)  
             await member.add_roles(role)
             
-        if payload.emoji.name == ID_tk
+        if payload.emoji.name == '\N{GRINNING FACE}':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_tk)  
