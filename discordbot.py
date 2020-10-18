@@ -63,6 +63,15 @@ async def loop():
         msg = await channel.send('今日のタスクキル')
         await msg.add_reaction(ID_tk)
         
+        role = discord.utils.get(message.guild.roles, name='1凸')
+        await role.delete()
+        role = discord.utils.get(message.guild.roles, name='2凸')
+        await role.delete()        
+        role = discord.utils.get(message.guild.roles, name='3凸')
+        await role.delete() 
+        role = discord.utils.get(message.guild.roles, name='タスクキル済')
+        await role.delete()        
+        
 #ループ処理実行
 loop.start()    
 #@client.event
