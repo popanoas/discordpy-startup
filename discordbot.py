@@ -105,29 +105,14 @@ async def on_reaction_add(self, reaction, user):
             text = "父と子とゴデチアのみ名によって、" + message.author.name + "の罪をゆるします。アーメン。安心して行きなさい"
     await channel.send(text)
 
-# 絵文字で役職付与
-async def grant_role(payload):
-    # 絵文字が異なる場合は処理を打ち切る
-    if payload.emoji.name != ID_emoji_1: 
-        return
-
-    # チャンネルが異なる場合は処理を打ち切る
-    if payload.channel_id != ID_taskkill:
-        return
-
-    # Member オブジェクトと Role オブジェクトを取得して役職を付与
-    member = payload.member
-    role = guild.get_role(ID_role_1)
-    await member.add_roles(role)
-    return member
-
-# リアクション追加時に実行されるイベントハンドラを定義
-@client.event
-async def on_raw_reaction_add(payload):
-    # 役職を付与する非同期関数を実行して Optional[Member] オブジェクトを取得
-    member = await grant_role(payload)
-    if member is not None: # 役職を付与したメンバーがいる時
-        text = f'{member.mention} おつかれさま！'
-        await client.get_channel(ID_taskkill).send(text)
+@client.event  
+async def on_raw_reaction_add(payload):  
+    channel = client.get_channel(payload.channel_id)  
+    if channel.id == ID_taskkill:
+        if payload.emoji.name == '\N{GRINNING FACE}':
+            guild = client.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_role_1)  
+            await member.add_roles(role)  
             
 client.run(token)
