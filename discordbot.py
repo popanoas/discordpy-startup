@@ -124,6 +124,7 @@ async def grant_role(payload):
 # リアクション追加時に実行されるイベントハンドラを定義
 @client.event
 async def on_raw_reaction_add(payload):
+    # 役職を付与する非同期関数を実行して Optional[Member] オブジェクトを取得
     member = await grant_role(payload)
     if member is not None: # 役職を付与したメンバーがいる時
         text = f'{member.mention} おつかれさま！'
