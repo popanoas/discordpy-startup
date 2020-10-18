@@ -125,9 +125,10 @@ async def on_raw_reaction_add(payload):
             role = guild.get_role(ID_role_tk)  
             await member.add_roles(role)  
             
-        if str(payload.emoji) == '<:knp:758012336706683062> ':
+        if str(payload.emoji) == '<:knp:758012336706683062>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_tk)  
-            await member.remove_roles(role)         
+            await member.remove_roles(role)
+            
 client.run(token)
