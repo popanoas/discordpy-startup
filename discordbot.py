@@ -63,8 +63,10 @@ async def loop():
         
         msg = await channel.send('今日のタスクキル')
         await msg.add_reaction(ID_tk)
-     
 
+        msg = await channel.send('凸状況の初期化')        
+        await msg.add_reaction(ID_remove_role)
+        
 #ループ処理実行
 loop.start()    
 #@client.event
@@ -128,7 +130,10 @@ async def on_raw_reaction_add(payload):
         if str(payload.emoji) == '<:knp:758012336706683062>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
-            role = guild.get_role(ID_role_tk)  
+            role = guild.get_role(ID_role_1)
+            role = guild.get_role(ID_role_2)              
+            role = guild.get_role(ID_role_3)              
+            role = guild.get_role(ID_role_4)              
             await member.remove_roles(role)
             
 client.run(token)
