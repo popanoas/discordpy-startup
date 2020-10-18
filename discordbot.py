@@ -11,7 +11,7 @@ import threading
 #鯖チャンネルID
 #ID_CHANNEL_1 = 670294227846037514
 ID_CHANNEL_ZANGE = 741739653245173800
-ID_taskkill = 731046340674453567
+ID_taskkill = 726398497384824853
 ID_Mana = 730136347477540908
 #ロールID
 ID_role_1 = 767249291730747403
@@ -67,26 +67,7 @@ async def loop():
         msg = await channel.send('凸状況の初期化')        
         await msg.add_reaction(ID_remove_role)
         #ロールの削除
-    if now == '05:00':    
-        guild = client.get_guild(payload.guild_id)  
-        member = guild.get_member(payload.user_id)  
-        role = guild.get_role(ID_role_1)            
-        await member.remove_roles(role)
-    if now == '05:00':    
-        guild = client.get_guild(payload.guild_id)  
-        member = guild.get_member(payload.user_id)  
-        role = guild.get_role(ID_role_2)            
-        await member.remove_roles(role)
-    if now == '05:00':    
-        guild = client.get_guild(payload.guild_id)  
-        member = guild.get_member(payload.user_id)  
-        role = guild.get_role(ID_role_3)            
-        await member.remove_roles(role)        
-    if now == '05:00':    
-        guild = client.get_guild(payload.guild_id)  
-        member = guild.get_member(payload.user_id)  
-        role = guild.get_role(ID_role_tk)            
-        await member.remove_roles(role)        
+
         
 #ループ処理実行
 loop.start()    
