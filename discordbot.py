@@ -12,8 +12,14 @@ import threading
 #鯖チャンネルID
 #ID_CHANNEL_1 = 670294227846037514  # boss1チャンネルID
 ID_CHANNEL_ZANGE = 741739653245173800 #懺悔部屋のチャンネルID
-ID_taskkill = 726398497384824853 #凸管理タスクキルチャンネル
+ID_taskkill = 731046340674453567 #凸管理タスクキルチャンネル
 ID_Mana = 730136347477540908　#ランドソル杯チャンネル(旧マナ相互)
+
+#ロールID
+ID_role_1 = 767199879641694268
+ID_role_2 = 767200011749949470
+ID_role_3 = 767200106557865985
+ID_role_tk = 767200196827676683
 
 #鯖専用絵文字
 ID_emoji = '<:61ok:728923368870510605>'
@@ -41,12 +47,7 @@ async def on_message(message):
         channel = client.get_channel(ID_CHANNEL_1)
         await channel.send('--------------------1段階目--------------------')
           
-@client.event
-async def on_reaction_add(self, reaction, user):
-    if channel.id == ID_CHANNEL_ZANGE:
-        if payload.emoji.name == '\N{GRINNING FACE}':
-            text = "父と子とゴデチアのみ名によって、" + message.author.name + "の罪をゆるします。アーメン。安心して行きなさい"
-    await channel.send(text)
+
     
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
@@ -74,30 +75,62 @@ async def loop():
 #ループ処理実行
 loop.start()    
 
-@client.event
-async def on_raw_reaction_add(payload):
+#@client.event
+#async def on_raw_reaction_add(payload):
     # author: リアクションがついたメッセージを書いた人
-    channel = client.get_channel(payload.channel_id)
-    message = await client.get_channel(payload.channel_id).fetch_message(payload.message_id)
-    if channel.id == ID_Mana:
-        guild = client.get_guild(payload.guild_id)  
-        member = guild.get_member(payload.user_id)    
-        user = client.get_user(payload.user_id)
-                
-        if user.bot:
-            return
-        else:
-            text = member.name + 'さんが記入しました♡'  
-
+    #channel = client.get_channel(payload.channel_id)
+    #message = await client.get_channel(payload.channel_id).fetch_message(payload.message_id)
+    #if channel.id == ID_Mana:
+        #guild = client.get_guild(payload.guild_id)  
+        #member = guild.get_member(payload.user_id)    
+        #user = client.get_user(payload.user_id)                
+        #if user.bot:
+            #return
+        #else:
+            #text = member.name + 'さんが記入しました♡'  
             
-    if channel.id == ID_taskkill:
-        guild = client.get_guild(payload.guild_id)  
-        member = guild.get_member(payload.user_id)    
-        user = client.get_user(payload.user_id)
-        
-        if user.bot:
-            return
-        else:
-            text = member.name + 'さんが入力しました♡'  
- 
+    #if channel.id == ID_taskkill:
+        #guild = client.get_guild(payload.guild_id)  
+        #member = guild.get_member(payload.user_id)    
+        #user = client.get_user(payload.user_id)        
+        #if user.bot:
+            #return
+        #else:
+            #text = member.name + 'さんが入力しました♡' 
+            
+@client.event
+async def on_reaction_add(self, reaction, user):
+    if channel.id == ID_CHANNEL_ZANGE:
+        if payload.emoji.name == '\N{GRINNING FACE}':
+            text = "父と子とゴデチアのみ名によって、" + message.author.name + "の罪をゆるします。アーメン。安心して行きなさい"
+    await channel.send(text)
+
+@client.event  
+async def on_reaction_add(payload):  
+    channel = client.get_channel(payload.channel_id)  
+    if channel.id == ID_taskkill: 
+        if payload.emoji.name == 'ID_1':
+            guild = client.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_role_1)  
+            await member.add_roles(role)  
+
+        if payload.emoji.name == 'ID_2':
+            guild = client.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_role_2)  
+            await member.add_roles(role) 
+            
+        if payload.emoji.name == 'ID_3':
+            guild = client.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_role_3)  
+            await member.add_roles(role)
+            
+        if payload.emoji.name == 'ID_tk':
+            guild = client.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_role_tk)  
+            await member.add_roles(role)
+            
 client.run(token)
