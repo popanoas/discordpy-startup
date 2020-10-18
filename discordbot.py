@@ -25,6 +25,7 @@ ID_emoji_zange = '<:61ok:728923368870510605>'
 ID_1 = '<:59na:726842370116812850>'
 ID_2 = '<:58no:726842380673876091>'
 ID_3 = '<:57ra:726842390949789696>'
+ID_remove_role = '<:knp:758012336706683062> '
 token = os.environ['DISCORD_BOT_TOKEN']
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
@@ -124,5 +125,9 @@ async def on_raw_reaction_add(payload):
             role = guild.get_role(ID_role_tk)  
             await member.add_roles(role)  
             
-        
+        if str(payload.emoji) == '<:knp:758012336706683062> ':
+            guild = client.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_role_tk)  
+            await member.remove_roles(role)         
 client.run(token)
