@@ -103,7 +103,7 @@ async def on_reaction_add(self, reaction, user):
 async def on_raw_reaction_add(payload):  
     channel = client.get_channel(payload.channel_id)  
     if channel.id == ID_taskkill:
-        #if payload.emoji.name == '\N{GRINNING FACE}':
+        #ロールの付与
         if str(payload.emoji) == '<:59na:726842370116812850>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
@@ -113,27 +113,38 @@ async def on_raw_reaction_add(payload):
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_2)  
-            await member.add_roles(role)
-            
+            await member.add_roles(role) 
         if str(payload.emoji) == '<:57ra:726842390949789696>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_3)  
-            await member.add_roles(role)  
-            
+            await member.add_roles(role)   
         if str(payload.emoji) == '<:syarururage:737890640519495712>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_tk)  
             await member.add_roles(role)  
-            
+        #ロールの削除    
         if str(payload.emoji) == '<:knp:758012336706683062>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
-            role = guild.get_role(ID_role_1)
-            role = guild.get_role(ID_role_2)              
-            role = guild.get_role(ID_role_3)              
-            role = guild.get_role(ID_role_4)              
+            role = guild.get_role(ID_role_1)            
             await member.remove_roles(role)
+        if str(payload.emoji) == '<:knp:758012336706683062>':
+            guild = client.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_role_2)            
+            await member.remove_roles(role)
+        if str(payload.emoji) == '<:knp:758012336706683062>':
+            guild = client.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_role_3)            
+            await member.remove_roles(role)            
+        if str(payload.emoji) == '<:knp:758012336706683062>':
+            guild = client.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_role_tk)            
+            await member.remove_roles(role)            
             
+
 client.run(token)
