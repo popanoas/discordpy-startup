@@ -124,4 +124,15 @@ async def on_raw_reaction_add(payload):
             role = guild.get_role(ID_role_tk)  
             await member.add_roles(role)  
             
+@client.event
+async def on_message(message):
+    # メッセージ送信者がBotだった場合は無視する
+    if message.author.bot:
+        return
+        
+    # チャンネル1に対するアクション
+    if message.content == '/ロールを外す':
+        role = discord.utils.get(message.guild.roles, name='1')
+        await role.delete()
+            
 client.run(token)
