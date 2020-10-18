@@ -67,7 +67,18 @@ async def loop():
         msg = await channel.send('凸状況の初期化')        
         await msg.add_reaction(ID_remove_role)
         #ロールの削除
-
+    if now == '05:00':    
+        role = discord.utils.get(member.guild.roles, name='1凸')
+        await member.remove_roles(role)
+    if now == '05:00':    
+        role = discord.utils.get(member.guild.roles, name='2凸')
+        await member.remove_roles(role)        
+    if now == '05:00':    
+        role = discord.utils.get(member.guild.roles, name='3凸')
+        await member.remove_roles(role)        
+    if now == '05:00':    
+        role = discord.utils.get(member.guild.roles, name='タスクキル済')
+        await member.remove_roles(role)          
         
 #ループ処理実行
 loop.start()    
