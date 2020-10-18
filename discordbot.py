@@ -62,15 +62,7 @@ async def loop():
         
         msg = await channel.send('今日のタスクキル')
         await msg.add_reaction(ID_tk)
-
-        role = discord.utils.get(message.guild.roles, name='1凸')
-        await role.delete()
-        role = discord.utils.get(message.guild.roles, name='2凸')
-        await role.delete()        
-        role = discord.utils.get(message.guild.roles, name='3凸')
-        await role.delete() 
-        role = discord.utils.get(message.guild.roles, name='タスクキル済')
-        await role.delete()        
+     
 
 #ループ処理実行
 loop.start()    
@@ -132,22 +124,5 @@ async def on_raw_reaction_add(payload):
             role = guild.get_role(ID_role_tk)  
             await member.add_roles(role)  
             
-@client.event
-async def on_message(message):
-    # メッセージ送信者がBotだった場合は無視する
-    if message.author.bot:
-        return
-        
-    # チャンネル1に対するアクション
-    if message.content == '/ロールを外す':
-        role = discord.utils.get(message.guild.roles, name='1凸')
-        await role.delete()
-        role = discord.utils.get(message.guild.roles, name='2凸')
-        await role.delete()
-        role = discord.utils.get(message.guild.roles, name='3凸')
-        await role.delete()        
-        role = discord.utils.get(message.guild.roles, name='タスクキル済')
-        await role.delete()        
-        
         
 client.run(token)
