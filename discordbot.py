@@ -106,5 +106,22 @@ async def on_raw_reaction_add(payload):
             role = guild.get_role(ID_role_1)  
             await member.add_roles(role)  
 
-
+        if str(payload.emoji) == '<:58no:726842380673876091>':
+            guild = client.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_role_2)  
+            await member.add_roles(role)
+            
+        if str(payload.emoji) == '<:57ra:726842390949789696>':
+            guild = client.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_role_3)  
+            await member.add_roles(role)  
+            
+        if str(payload.emoji) == '<:syarururage:737890640519495712>':
+            guild = client.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_role_tk)  
+            await member.add_roles(role)  
+            
 client.run(token)
