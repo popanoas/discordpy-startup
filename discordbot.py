@@ -145,14 +145,14 @@ async def on_message(message):
         
     # チャンネル1に対するアクション
     if message.content == '/ロールを外す':
-        　　　　role = discord.utils.get(message.guild.roles, name='1凸')
-        　　　　await role.delete()
-        　　　　role = discord.utils.get(message.guild.roles, name='2凸')
-        　　　　await role.delete()            
-        　　　　role = discord.utils.get(message.guild.roles, name='3凸')
-        　　　　await role.delete()            
-        　　　　role = discord.utils.get(message.guild.roles, name='タスクキル済')
-        　　　　await role.delete()   
-               await message.delete()            
+        role = discord.utils.get(message.guild.roles, name='1凸')
+        await role.delete()
+        role = discord.utils.get(message.guild.roles, name='2凸')
+        await role.delete()            
+        role = discord.utils.get(message.guild.roles, name='3凸')
+        await role.delete()            
+        role = discord.utils.get(message.guild.roles, name='タスクキル済')
+        await role.delete()   
+        await message.delete()            
             
 client.run(token)
