@@ -25,10 +25,11 @@ ID_emoji_zange = '<:61ok:728923368870510605>'
 ID_1 = '<:59na:726842370116812850>'
 ID_2 = '<:58no:726842380673876091>'
 ID_3 = '<:57ra:726842390949789696>'
-ID_remove_role = '<:knp:758012336706683062> '
+ID_remove_role = '<:knp:758012336706683062>'
 token = os.environ['DISCORD_BOT_TOKEN']
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
+
 # メッセージ受信時に動作する処理
 #@client.event
 async def on_message(message):
@@ -39,8 +40,7 @@ async def on_message(message):
     # チャンネル1に対するアクション
     if message.content == '/1段階目':
         channel = client.get_channel(ID_CHANNEL_1)
-        await channel.send('--------------------1段階目--------------------')
-          
+        await channel.send('--------------------1段階目--------------------')       
     
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
