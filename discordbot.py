@@ -109,25 +109,25 @@ async def on_reaction_add(self, reaction, user):
 async def on_reaction_add(payload):  
     channel = client.get_channel(payload.channel_id)  
     if channel.id == ID_taskkill: 
-        if payload.emoji.name == 'ID_1':
+        if payload.emoji.name == ID_1
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_1)  
             await member.add_roles(role)  
 
-        if payload.emoji.name == 'ID_2':
+        if payload.emoji.name == ID_2
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_2)  
             await member.add_roles(role) 
             
-        if payload.emoji.name == 'ID_3':
+        if payload.emoji.name == ID_3
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_3)  
             await member.add_roles(role)
             
-        if payload.emoji.name == 'ID_tk':
+        if payload.emoji.name == ID_tk
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_tk)  
