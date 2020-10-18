@@ -67,18 +67,29 @@ async def loop():
         msg = await channel.send('凸状況の初期化')        
         await msg.add_reaction(ID_remove_role)
         #ロールの削除
+        
+    if message.author.bot:
+        return
     if now == '05:00':    
-        role = discord.utils.get(member.guild.roles, name='1凸')
+        guild = client.get_guild(payload.guild_id)  
+        member = guild.get_member(payload.user_id)  
+        role = guild.get_role(ID_role_1)            
         await member.remove_roles(role)
     if now == '05:00':    
-        role = discord.utils.get(member.guild.roles, name='2凸')
-        await member.remove_roles(role)        
+        guild = client.get_guild(payload.guild_id)  
+        member = guild.get_member(payload.user_id)  
+        role = guild.get_role(ID_role_2)            
+        await member.remove_roles(role)
     if now == '05:00':    
-        role = discord.utils.get(member.guild.roles, name='3凸')
-        await member.remove_roles(role)        
+        guild = client.get_guild(payload.guild_id)  
+        member = guild.get_member(payload.user_id)  
+        role = guild.get_role(ID_role_3)            
+        await member.remove_roles(role)    
     if now == '05:00':    
-        role = discord.utils.get(member.guild.roles, name='タスクキル済')
-        await member.remove_roles(role)          
+        guild = client.get_guild(payload.guild_id)  
+        member = guild.get_member(payload.user_id)  
+        role = guild.get_role(ID_role_4)            
+        await member.remove_roles(role)       
         
 #ループ処理実行
 loop.start()    
@@ -115,7 +126,7 @@ async def on_reaction_add(self, reaction, user):
 @client.event  
 async def on_raw_reaction_add(payload):  
     channel = client.get_channel(payload.channel_id)
-    if message.author.bot:
+    if payload.author.bot:
         return    
         if channel.id == ID_taskkill:
         #ロールの付与
