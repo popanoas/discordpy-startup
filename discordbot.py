@@ -100,7 +100,7 @@ async def on_raw_reaction_add(payload):
     channel = client.get_channel(payload.channel_id)  
     if channel.id == ID_taskkill:
         #if payload.emoji.name == '\N{GRINNING FACE}':
-        if str(payload.emoji) == 'ID_1':
+        if str(payload.emoji) == '<:59na:726842370116812850>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_1)  
