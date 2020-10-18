@@ -25,7 +25,7 @@ ID_emoji_zange = '<:61ok:728923368870510605>'
 ID_1 = '<:59na:726842370116812850>'
 ID_2 = '<:58no:726842380673876091>'
 ID_3 = '<:57ra:726842390949789696>'
-ID_reset = :x:
+ID_reset = '<:knp:758012336706683062>'
 token = os.environ['DISCORD_BOT_TOKEN']
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
@@ -64,6 +64,9 @@ async def loop():
         msg = await channel.send('今日のタスクキル')
         await msg.add_reaction(ID_tk)
         
+        msg = await channel.send('リセット')
+        await msg.add_reaction(ID_reset)              
+        
         role = discord.utils.get(message.guild.roles, name='1凸')
         await role.delete()
         role = discord.utils.get(message.guild.roles, name='2凸')
@@ -72,12 +75,11 @@ async def loop():
         await role.delete() 
         role = discord.utils.get(message.guild.roles, name='タスクキル済')
         await role.delete()
-        
-        msg = await channel.send('リセット')
-        await msg.add_reaction(ID_reset)        
+          
         
 #ループ処理実行
-loop.start()    
+loop.start()  
+
 #@client.event
 #async def on_raw_reaction_add(payload):
     # author: リアクションがついたメッセージを書いた人
@@ -136,7 +138,7 @@ async def on_raw_reaction_add(payload):
             role = guild.get_role(ID_role_tk)  
             await member.add_roles(role)  
 
-        if str(payload.emoji) == ':x:':      
+        if str(payload.emoji) == '<:knp:758012336706683062> ':      
         　　　　role = discord.utils.get(message.guild.roles, name='1凸')
         　　　　await role.delete()
         　　　　role = discord.utils.get(message.guild.roles, name='2凸')
