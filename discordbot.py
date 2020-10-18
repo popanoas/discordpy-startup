@@ -109,25 +109,25 @@ async def on_reaction_add(self, reaction, user):
 async def on_reaction_add(payload):  
     channel = client.get_channel(payload.channel_id)  
     if channel.id == ID_taskkill: 
-        if payload.emoji.name == '\N{GRINNING FACE}':
+        if payload.emoji.name == 767199879641694268
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_1)  
             await member.add_roles(role)  
 
-        if payload.emoji.name == '\N{GRINNING FACE}':
+        if payload.emoji.name == 767200011749949470
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_2)  
             await member.add_roles(role) 
             
-        if payload.emoji.name == '\N{GRINNING FACE}':
+        if payload.emoji.name == 767200106557865985
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_3)  
             await member.add_roles(role)
             
-        if payload.emoji.name == '\N{GRINNING FACE}':
+        if payload.emoji.name == 767200196827676683
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_tk)  
