@@ -69,8 +69,8 @@ async def loop():
         await msg.add_reaction(ID_remove_role)
         #ロールの削除
         
-    if message.author.bot:
-        return
+    #if message.author.bot:
+        #return
     if now == '05:00':    
         role1 = guild.get_role(ID_role_1)
         role2 = guild.get_role(ID_role_2)
