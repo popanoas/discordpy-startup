@@ -71,7 +71,7 @@ async def loop():
         
     #if message.author.bot:
         #return
-    if now == '05:00':    
+    if now == '09:02':    
         role1 = guild.get_role(ID_role_1)
         role2 = guild.get_role(ID_role_2)
         role3 = guild.get_role(ID_role_3)
