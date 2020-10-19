@@ -178,20 +178,6 @@ async def on_raw_reaction_add(payload):
             if not member.bot:
                 await member.remove_roles(role)            
 
-@client.command()
-@commands.has_permissions(administrator=True)
-async def remove_role(ctx):
-    role_1 = ctx.guild.get_role(ID_role_1)
-    role_2 = ctx.guild.get_role(ID_role_2)
-    role_3 = ctx.guild.get_role(ID_role_3)    
-    role_tk = ctx.guild.get_role(ID_role_tk)    
-    for member in ctx.guild.members:
-        if not member.bot:
-            await member.add_roles(role_1)
-            await member.add_roles(role_2)            
-            await member.add_roles(role_3)                
-            await member.add_roles(role_tk)                
-                
 @client.event
 async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
