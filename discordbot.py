@@ -178,5 +178,27 @@ async def on_raw_reaction_add(payload):
             if not member.bot:
                 await member.remove_roles(role)            
             
-
+@client.event
+async def on_message(message):
+    # メッセージ送信者がBotだった場合は無視する
+    if message.author.bot:
+        return
+        
+    # チャンネル1に対するアクション
+    if message.content == '/テスト':
+        channel = client.get_channel(ID_taskkill)
+        msg = await channel.send('------------------------------------------------------------ \n 日付が変わりました！今日も頑張りましょう♡') 
+    
+        msg = await channel.send('今日の凸状況')
+        await msg.add_reaction(ID_1)
+        await msg.add_reaction(ID_2)
+        await msg.add_reaction(ID_3)
+        
+        msg = await channel.send('今日のタスクキル')
+        await msg.add_reaction(ID_tk)
+        
+        msg = await channel.send('凸状況の初期化')        
+        await msg.add_reaction(ID_remove_role)
+            
+            
 client.run(token)
