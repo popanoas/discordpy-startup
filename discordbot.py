@@ -178,7 +178,7 @@ async def on_raw_reaction_add(payload):
             if not member.bot:
                 await member.remove_roles(role)            
 
-@bot.command()
+@client.command()
 @commands.has_permissions(administrator=True)
 async def remove_role(ctx):
     role_1 = ctx.guild.get_role(ID_role_1)
