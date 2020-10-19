@@ -54,6 +54,7 @@ async def loop():
         #await msg.add_reaction(ID_emoji) 
         #凸、タスクキル管理
         channel = client.get_channel(ID_taskkill)
+        guild = client.get_guild(payload.guild_id) 
         msg = await channel.send('------------------------------------------------------------ \n 日付が変わりました！今日も頑張りましょう♡') 
     
         msg = await channel.send('今日の凸状況')
@@ -71,25 +72,15 @@ async def loop():
     if message.author.bot:
         return
     if now == '05:00':    
-        guild = client.get_guild(payload.guild_id)  
-        member = guild.get_member(payload.user_id)  
-        role = guild.get_role(ID_role_1)            
-        await member.remove_roles(role)
-    if now == '05:00':    
-        guild = client.get_guild(payload.guild_id)  
-        member = guild.get_member(payload.user_id)  
-        role = guild.get_role(ID_role_2)            
-        await member.remove_roles(role)
-    if now == '05:00':    
-        guild = client.get_guild(payload.guild_id)  
-        member = guild.get_member(payload.user_id)  
-        role = guild.get_role(ID_role_3)            
-        await member.remove_roles(role)    
-    if now == '05:00':    
-        guild = client.get_guild(payload.guild_id)  
-        member = guild.get_member(payload.user_id)  
-        role = guild.get_role(ID_role_4)            
-        await member.remove_roles(role)       
+        role1 = guild.get_role(ID_role_1)
+        role2 = guild.get_role(ID_role_2)
+        role3 = guild.get_role(ID_role_3)
+        roletk = guild.get_role(ID_role_tk)
+        for member in guild.members:
+            await member.remove_roles(role1)
+            await member.remove_roles(role2)
+            await member.remove_roles(role3)
+            await member.remove_roles(roletk)
         
 #ループ処理実行
 loop.start()    
