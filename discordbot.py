@@ -196,7 +196,7 @@ async def on_message(message):
     # チャンネル1に対するアクション
     if message.content == '/テスト':
         channel = client.get_channel(ID_taskkill)
-        msg = await channel.send('-------------------------------------------------------------------- \n 凸、タスクキルしたらリアクションを付けてください♡ \n 間違えて押したときはリアクションを外してください♡ \n --------------------------------------------------------------------') 
+        msg = await channel.send('---------------------------------------------------------------------- \n 凸、タスクキルしたらリアクションを付けてください♡ \n 間違えて押したときはリアクションを外してください♡') 
     
         msg = await channel.send('今日の凸状況')
         await msg.add_reaction(ID_1)
@@ -208,6 +208,8 @@ async def on_message(message):
         
         msg = await channel.send('凸状況の初期化')        
         await msg.add_reaction(ID_remove_role)
+        
+        msg = await channel.send('----------------------------------------------------------------------')            
         
 
 client.run(token)
