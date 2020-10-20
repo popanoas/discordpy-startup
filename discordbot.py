@@ -26,6 +26,11 @@ ID_1 = '<:1totu:767560319853395970>'
 ID_2 = '<:2totu:767560336826957846>'
 ID_3 = '<:3totu:767560349947658300>'
 ID_remove_role = '<:knp:758012336706683062>'
+#メッセージID
+ID_message_totu = 767913437090283520
+ID_message_tk = 767913440516898826
+ID_message_reset = 767913441943879720
+
 token = os.environ['DISCORD_BOT_TOKEN']
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
@@ -55,7 +60,7 @@ async def loop():
         #凸、タスクキル管理
         channel = client.get_channel(ID_taskkill)
         guild = client.get_guild(payload.guild_id) 
-        msg = await channel.send('------------------------------------------------------------ \n 日付が変わりました！今日も頑張りましょう♡') 
+        msg = await channel.send('---------------------------------------------------------------------- \n 凸、タスクキルしたらリアクションを付けてください♡ \n 間違えて押したときはリアクションを外してください♡') 
         msg = await channel.send('今日の凸状況')
         await msg.add_reaction(ID_1)
         await msg.add_reaction(ID_2)
@@ -63,7 +68,8 @@ async def loop():
         msg = await channel.send('今日のタスクキル')
         await msg.add_reaction(ID_tk)
         msg = await channel.send('凸状況の初期化')        
-        await msg.add_reaction(ID_remove_role)
+        await msg.add_reaction(ID_remove_role)   
+        msg = await channel.send('----------------------------------------------------------------------')            
         #ロールの削除
 
         
@@ -194,19 +200,15 @@ async def on_message(message):
     if message.content == '/テスト':
         channel = client.get_channel(ID_taskkill)
         msg = await channel.send('---------------------------------------------------------------------- \n 凸、タスクキルしたらリアクションを付けてください♡ \n 間違えて押したときはリアクションを外してください♡') 
-    
         msg = await channel.send('今日の凸状況')
         await msg.add_reaction(ID_1)
         await msg.add_reaction(ID_2)
         await msg.add_reaction(ID_3)
-        
         msg = await channel.send('今日のタスクキル')
         await msg.add_reaction(ID_tk)
-        
         msg = await channel.send('凸状況の初期化')        
-        await msg.add_reaction(ID_remove_role)
-        
+        await msg.add_reaction(ID_remove_role)   
         msg = await channel.send('----------------------------------------------------------------------')            
         
-
+        
 client.run(token)
