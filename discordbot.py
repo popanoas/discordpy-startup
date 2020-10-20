@@ -11,7 +11,7 @@ import threading
 #鯖チャンネルID
 #ID_CHANNEL_1 = 670294227846037514
 ID_CHANNEL_ZANGE = 741739653245173800
-ID_taskkill = 767906119011139585
+ID_taskkill = 731046340674453567
 ID_Mana = 730136347477540908
 #ロールID
 ID_role_1 = 767249291730747403
@@ -209,21 +209,5 @@ async def on_message(message):
         msg = await channel.send('凸状況の初期化')        
         await msg.add_reaction(ID_remove_role)
         
-@client.event
-async def on_message(payload):
-    # メッセージ送信者がBotだった場合は無視する
-    if message.author.bot:
-        return        
 
-    if message.content == '/テスト':
-        guild = client.get_guild(payload.guild_id)  
-        role1 = guild.get_role(ID_role_1)
-        role2 = guild.get_role(ID_role_2)
-        role3 = guild.get_role(ID_role_3)
-        roletk = guild.get_role(ID_role_tk)
-        for member in guild.members:
-            await member.remove_roles(role1)
-            await member.remove_roles(role2)
-            await member.remove_roles(role3)
-            await member.remove_roles(roletk)            
 client.run(token)
