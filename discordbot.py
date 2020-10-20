@@ -180,5 +180,14 @@ async def on_message(message):
         msg = await channel.send('凸状況の初期化')        
         await msg.add_reaction(ID_remove_role)
             
-            
+
+        role1 = guild.get_role(ID_role_1)
+        role2 = guild.get_role(ID_role_2)
+        role3 = guild.get_role(ID_role_3)
+        roletk = guild.get_role(ID_role_tk)
+        for member in guild.members:
+            await member.remove_roles(role1)
+            await member.remove_roles(role2)
+            await member.remove_roles(role3)
+            await member.remove_roles(roletk)            
 client.run(token)
