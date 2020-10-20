@@ -47,7 +47,7 @@ async def on_message(message):
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '09:08':
+    if now == '09:10':
         #ランドソル杯データ入力
         #channel = client.get_channel(ID_Mana)
         #msg = await channel.send('日付が変わりました！記入が終わったらリアクションを付けてね♡ \n https://docs.google.com/spreadsheets/d/1nCdtFHS-60WcRZDx8hTXHFm3mPuEqefntQxeRfM2Lv0/edit#gid=632518118')  
@@ -68,17 +68,7 @@ async def loop():
         msg = await channel.send('凸状況の初期化')        
         await msg.add_reaction(ID_remove_role)
         #ロールの削除
-        
-    if now == '09:08':    
-        role1 = guild.get_role(ID_role_1)
-        role2 = guild.get_role(ID_role_2)
-        role3 = guild.get_role(ID_role_3)
-        roletk = guild.get_role(ID_role_tk)
-        for member in guild.members:
-            await member.remove_roles(role1)
-            await member.remove_roles(role2)
-            await member.remove_roles(role3)
-            await member.remove_roles(roletk)
+
         
 #ループ処理実行
 loop.start()    
