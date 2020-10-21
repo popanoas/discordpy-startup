@@ -50,7 +50,7 @@ async def on_message(message):
         await channel.send('--------------------1段階目--------------------')       
     
 # 60秒に一回ループ
-#@tasks.loop(seconds=60)
+@tasks.loop(seconds=60)
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
@@ -75,7 +75,7 @@ async def loop():
 
         
 #ループ処理実行
-#loop.start()    
+loop.start()    
 
 #@client.event
 #async def on_raw_reaction_add(payload):
