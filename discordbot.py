@@ -126,7 +126,10 @@ async def on_raw_reaction_remove(payload):
             role = guild.get_role(ID_clanmember)
             if not member.bot:            
                 await member.remove_roles(role)  
-                
+
+@client.event  
+async def on_raw_reaction_remove(payload):  
+    channel = client.get_channel(payload.channel_id)                
     if channel.id == ID_taskkill:
         #ロールの付与
         if str(payload.emoji) == '<:1totu:767560319853395970>':
