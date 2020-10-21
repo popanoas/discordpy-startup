@@ -98,6 +98,13 @@ loop.start()
         #else:
             #text = member.name + 'さんが入力しました♡'
 
+@client.event
+async def on_raw_reaction_add(self, reaction, user):
+    if channel.id == ID_CHANNEL_ZANGE:
+        if payload.emoji.name == '\N{GRINNING FACE}':
+            text = "父と子とゴデチアのみ名によって、" + message.author.name + "の罪をゆるします。アーメン。安心して行きなさい"
+        await channel.send(text)            
+            
 
 @client.event  
 async def on_raw_reaction_add(payload):  
