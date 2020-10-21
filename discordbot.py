@@ -122,7 +122,7 @@ async def on_raw_reaction_remove(payload):
         if str(payload.emoji) == '<:61ok:728923368870510605>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
-            role = guild.get_role(ID_role_1)
+            role = guild.get_role(ID_clanmember)
             if not member.bot:            
                 await member.remove_roles(role)  
                 
