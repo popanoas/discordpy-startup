@@ -13,11 +13,13 @@ import threading
 ID_CHANNEL_ZANGE = 741739653245173800
 ID_taskkill = 731046340674453567
 ID_Mana = 730136347477540908
+ID_readme = 768272323341320232
 #ロールID
 ID_role_1 = 767249291730747403
 ID_role_2 = 767200011749949470
 ID_role_3 = 767200106557865985
-ID_role_tk = 767200196827676683
+ID_role_tk = 76720019682767668
+ID_clanmember = 666361330827132979
 #鯖専用絵文字
 ID_emoji = '<:61ok:728923368870510605>'
 ID_tk = '<:syarururage:737890640519495712>'
@@ -93,6 +95,18 @@ loop.start()
             #return
         #else:
             #text = member.name + 'さんが入力しました♡' 
+
+@client.event  
+async def on_raw_reaction_add(payload):  
+    channel = client.get_channel(payload.channel_id)
+    if channel.id == ID_readme:
+        #ロールの付与
+        if str(payload.emoji) == '<:61ok:728923368870510605>':
+            guild = client.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_clanmember)
+            if not member.bot:            
+                await member.add_roles(role)              
             
 @client.event
 async def on_raw_reaction_add(self, reaction, user):
