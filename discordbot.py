@@ -72,7 +72,8 @@ async def loop():
         #ロールの削除
         
 #ループ処理実行
-loop.start()    
+loop.start()
+
 #@client.event
 #async def on_raw_reaction_add(payload):
     # author: リアクションがついたメッセージを書いた人
