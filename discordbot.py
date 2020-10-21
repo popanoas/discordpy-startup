@@ -164,14 +164,17 @@ async def on_raw_reaction_add(self, reaction, user):
             role = guild.get_role(ID_role_tk)
             if not member.bot:
                 await member.remove_roles(role)
+         
 #リアクションを外すとロールも外れる                
 @client.event  
-@@ -169,26 +171,22 @@ async def on_raw_reaction_remove(payload):
+async def on_raw_reaction_remove(payload):  
+    channel = client.get_channel(payload.channel_id)
+    if channel.id == ID_taskkill:
         if str(payload.emoji) == '<:1totu:767560319853395970>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_1)
-            if not member.bot:                  
+            if not member.bot:            
                 await member.remove_roles(role)  
         if str(payload.emoji) == '<:2totu:767560336826957846>':
             guild = client.get_guild(payload.guild_id)  
