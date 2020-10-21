@@ -98,7 +98,17 @@ loop.start()
         #else:
             #text = member.name + 'さんが入力しました♡'
             
-            
+@client.event  
+async def on_raw_reaction_add(payload):  
+    channel = client.get_channel(payload.channel_id)
+    if channel.id == ID_readme:
+        #ロールの付与
+        if str(payload.emoji) == '<:61ok:728923368870510605>':
+            guild = client.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_Clanmember)       
+                await member.add_roles(role)  
+                
 @client.event
 async def on_raw_reaction_add(self, reaction, user):
     if channel.id == ID_CHANNEL_ZANGE:
@@ -114,26 +124,22 @@ async def on_raw_reaction_add(payload):
         if str(payload.emoji) == '<:1totu:767560319853395970>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
-            role = guild.get_role(ID_role_1)
-            if not member.bot:            
+            role = guild.get_role(ID_role_1)         
                 await member.add_roles(role)  
         if str(payload.emoji) == '<:2totu:767560336826957846>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_2)
-            if not member.bot:
                 await member.add_roles(role) 
         if str(payload.emoji) == '<:3totu:767560349947658300>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_3)
-            if not member.bot:
                 await member.add_roles(role)   
         if str(payload.emoji) == '<:syarururage:737890640519495712>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_tk)
-            if not member.bot:
                 await member.add_roles(role)
             
         #ロールの削除    
@@ -141,25 +147,21 @@ async def on_raw_reaction_add(payload):
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_1)
-            if not member.bot:
                 await member.remove_roles(role)
         if str(payload.emoji) == '<:knp:758012336706683062>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_2)
-            if not member.bot:
                 await member.remove_roles(role)
         if str(payload.emoji) == '<:knp:758012336706683062>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_3)
-            if not member.bot:
                 await member.remove_roles(role)            
         if str(payload.emoji) == '<:knp:758012336706683062>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_tk)
-            if not member.bot:
                 await member.remove_roles(role)
 #リアクションを外すとロールも外れる                
 @client.event  
@@ -169,26 +171,22 @@ async def on_raw_reaction_remove(payload):
         if str(payload.emoji) == '<:1totu:767560319853395970>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
-            role = guild.get_role(ID_role_1)
-            if not member.bot:            
+            role = guild.get_role(ID_role_1)          
                 await member.remove_roles(role)  
         if str(payload.emoji) == '<:2totu:767560336826957846>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_2)
-            if not member.bot:
                 await member.remove_roles(role) 
         if str(payload.emoji) == '<:3totu:767560349947658300>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_3)
-            if not member.bot:
                 await member.remove_roles(role)
         if str(payload.emoji) == '<:syarururage:737890640519495712>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_tk)
-            if not member.bot:
                 await member.remove_roles(role)    
 @client.event
 async def on_message(message):
