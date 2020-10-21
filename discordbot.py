@@ -107,7 +107,7 @@ async def on_raw_reaction_add(payload):
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_Clanmember)       
-                await member.add_roles(role)  
+            await member.add_roles(role)  
                 
 @client.event
 async def on_raw_reaction_add(self, reaction, user):
