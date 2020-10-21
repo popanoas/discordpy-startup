@@ -114,9 +114,8 @@ async def on_raw_reaction_add(payload):
     if channel.id == ID_readme:  
         guild = client.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id)  
-        role = guild.get_role(ID_Clanmember)  
-        if not member.bot:            
-            await member.add_roles(role)  
+        role = guild.get_role(ID_Clanmember)     
+        await member.add_roles(role)  
     
     
 @client.event  
