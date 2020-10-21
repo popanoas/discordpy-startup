@@ -72,11 +72,9 @@ async def loop():
         await msg.add_reaction(ID_remove_role)   
         msg = await channel.send('----------------------------------------------------------------------')            
         #ロールの削除
-
         
 #ループ処理実行
 loop.start()    
-
 #@client.event
 #async def on_raw_reaction_add(payload):
     # author: リアクションがついたメッセージを書いた人
@@ -98,16 +96,8 @@ loop.start()
         #if user.bot:
             #return
         #else:
-            #text = member.name + 'さんが入力しました♡' 
+            #text = member.name + 'さんが入力しました♡'
             
-@client.event
-async def on_raw_reaction_add(self, reaction, user):
-    if channel.id == ID_CHANNEL_ZANGE:
-        if payload.emoji.name == '\N{GRINNING FACE}':
-            text = "父と子とゴデチアのみ名によって、" + message.author.name + "の罪をゆるします。アーメン。安心して行きなさい"
-    await channel.send(text)
-
-    #初めにお読みください用
 @client.event  
 async def on_raw_reaction_add(payload):  
     channel = client.get_channel(payload.channel_id)
@@ -119,7 +109,14 @@ async def on_raw_reaction_add(payload):
             role = guild.get_role(ID_Clanmember)
             if not member.bot:            
                 await member.add_roles(role)  
-    
+            
+            
+@client.event
+async def on_raw_reaction_add(self, reaction, user):
+    if channel.id == ID_CHANNEL_ZANGE:
+        if payload.emoji.name == '\N{GRINNING FACE}':
+            text = "父と子とゴデチアのみ名によって、" + message.author.name + "の罪をゆるします。アーメン。安心して行きなさい"
+    await channel.send(text)
     
 @client.event  
 async def on_raw_reaction_add(payload):  
