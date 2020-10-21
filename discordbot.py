@@ -94,19 +94,8 @@ loop.start()
         #if user.bot:
             #return
         #else:
-            #text = member.name + 'さんが入力しました♡' 
-
-@client.event  
-async def on_raw_reaction_add(payload):  
-    channel = client.get_channel(payload.channel_id)
-    if channel.id == ID_readme:
-        #ロールの付与
-        if str(payload.emoji) == '<:61ok:728923368870510605>':
-            guild = client.get_guild(payload.guild_id)  
-            member = guild.get_member(payload.user_id)  
-            role = guild.get_role(ID_clanmember)
-            if not member.bot:            
-                await member.add_roles(role)              
+            #text = member.name + 'さんが入力しました♡'
+     
             
 @client.event
 async def on_raw_reaction_add(self, reaction, user):
@@ -118,6 +107,14 @@ async def on_raw_reaction_add(self, reaction, user):
 @client.event  
 async def on_raw_reaction_add(payload):  
     channel = client.get_channel(payload.channel_id)
+        #readmeでの役職の付与
+    if channel.id == ID_readme:
+        if str(payload.emoji) == '<:61ok:728923368870510605>':
+            guild = client.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_clanmember)
+            if not member.bot:            
+                await member.add_roles(role)         
     if channel.id == ID_taskkill:
         #ロールの付与
         if str(payload.emoji) == '<:1totu:767560319853395970>':
