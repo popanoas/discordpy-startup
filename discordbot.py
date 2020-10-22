@@ -156,7 +156,10 @@ async def on_raw_reaction_remove(payload):
             role = guild.get_role(ID_role_tk)
             if not member.bot:
                 await member.add_roles(role)
-            
+@client.event  
+async def on_raw_reaction_remove(payload):  
+    channel = client.get_channel(payload.channel_id)                
+    if channel.id == ID_taskkill:            
         #ロールの削除    
         if str(payload.emoji) == '<:knp:758012336706683062>':
             guild = client.get_guild(payload.guild_id)  
