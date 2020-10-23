@@ -2,6 +2,7 @@
 import discord
 import asyncio
 import os
+import sys
 import traceback
 import random
 from datetime import datetime
