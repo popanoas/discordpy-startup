@@ -37,15 +37,15 @@ token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()
 # メッセージ受信時に動作する処理
 #@client.event
-async def on_message(message):
+#async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
-    if message.author.bot:
-        return
+    #if message.author.bot:
+        #return
         
     # チャンネル1に対するアクション
-    if message.content == '/1段階目':
-        channel = client.get_channel(ID_CHANNEL_1)
-        await channel.send('--------------------1段階目--------------------')       
+    #if message.content == '/1段階目':
+        #channel = client.get_channel(ID_CHANNEL_1)
+        #await channel.send('--------------------1段階目--------------------')       
     
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
