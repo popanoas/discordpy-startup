@@ -13,13 +13,11 @@ import threading
 ID_CHANNEL_ZANGE = 741739653245173800
 ID_taskkill = 731046340674453567
 ID_Mana = 730136347477540908
-ID_readme = 768272323341320232
 #ロールID
 ID_role_1 = 767249291730747403
 ID_role_2 = 767200011749949470
 ID_role_3 = 767200106557865985
-ID_role_tk = 76720019682767668
-ID_clanmember = 666361330827132979
+ID_role_tk = 767200196827676683
 #鯖専用絵文字
 ID_emoji = '<:61ok:728923368870510605>'
 ID_tk = '<:syarururage:737890640519495712>'
@@ -32,27 +30,29 @@ ID_remove_role = '<:knp:758012336706683062>'
 ID_message_totu = 767913437090283520
 ID_message_tk = 767913440516898826
 ID_message_reset = 767913441943879720
+
 token = os.environ['DISCORD_BOT_TOKEN']
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
+
 # メッセージ受信時に動作する処理
 #@client.event
-#async def on_message(message):
+async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
-    #if message.author.bot:
-        #return
+    if message.author.bot:
+        return
         
     # チャンネル1に対するアクション
-    #if message.content == '/1段階目':
-        #channel = client.get_channel(ID_CHANNEL_1)
-        #await channel.send('--------------------1段階目--------------------')       
+    if message.content == '/1段階目':
+        channel = client.get_channel(ID_CHANNEL_1)
+        await channel.send('--------------------1段階目--------------------')       
     
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '05:00':
+    if now == '10:16':
         #ランドソル杯データ入力
         #channel = client.get_channel(ID_Mana)
         #msg = await channel.send('日付が変わりました！記入が終わったらリアクションを付けてね♡ \n https://docs.google.com/spreadsheets/d/1nCdtFHS-60WcRZDx8hTXHFm3mPuEqefntQxeRfM2Lv0/edit#gid=632518118')  
@@ -70,9 +70,10 @@ async def loop():
         await msg.add_reaction(ID_remove_role)   
         msg = await channel.send('----------------------------------------------------------------------')            
         #ロールの削除
+
         
 #ループ処理実行
-loop.start()
+loop.start()    
 
 #@client.event
 #async def on_raw_reaction_add(payload):
@@ -95,41 +96,18 @@ loop.start()
         #if user.bot:
             #return
         #else:
-            #text = member.name + 'さんが入力しました♡'
-     
+            #text = member.name + 'さんが入力しました♡' 
             
 @client.event
 async def on_raw_reaction_add(self, reaction, user):
     if channel.id == ID_CHANNEL_ZANGE:
         if payload.emoji.name == '\N{GRINNING FACE}':
             text = "父と子とゴデチアのみ名によって、" + message.author.name + "の罪をゆるします。アーメン。安心して行きなさい"
-        await channel.send(text)
+    await channel.send(text)
     
 @client.event  
 async def on_raw_reaction_add(payload):  
     channel = client.get_channel(payload.channel_id)
-        #readmeでの役職の付与
-    if channel.id == ID_readme:
-        if str(payload.emoji) == '<:61ok:728923368870510605>':
-            guild = client.get_guild(payload.guild_id)  
-            member = guild.get_member(payload.user_id)  
-            role = guild.get_role(ID_clanmember)
-            if not member.bot:            
-                await member.add_roles(role)
-@client.event  
-async def on_raw_reaction_remove(payload):  
-    channel = client.get_channel(payload.channel_id)
-    if channel.id == ID_readme:
-        if str(payload.emoji) == '<:61ok:728923368870510605>':
-            guild = client.get_guild(payload.guild_id)  
-            member = guild.get_member(payload.user_id)  
-            role = guild.get_role(ID_clanmember)
-            if not member.bot:            
-                await member.remove_roles(role)  
-
-@client.event  
-async def on_raw_reaction_remove(payload):  
-    channel = client.get_channel(payload.channel_id)                
     if channel.id == ID_taskkill:
         #ロールの付与
         if str(payload.emoji) == '<:1totu:767560319853395970>':
@@ -156,10 +134,7 @@ async def on_raw_reaction_remove(payload):
             role = guild.get_role(ID_role_tk)
             if not member.bot:
                 await member.add_roles(role)
-@client.event  
-async def on_raw_reaction_remove(payload):  
-    channel = client.get_channel(payload.channel_id)                
-    if channel.id == ID_taskkill:            
+            
         #ロールの削除    
         if str(payload.emoji) == '<:knp:758012336706683062>':
             guild = client.get_guild(payload.guild_id)  
@@ -232,8 +207,7 @@ async def on_message(message):
         await msg.add_reaction(ID_tk)
         msg = await channel.send('凸状況の初期化')        
         await msg.add_reaction(ID_remove_role)   
-        msg = await channel.send('----------------------------------------------------------------------')      
-        
+        msg = await channel.send('----------------------------------------------------------------------')            
         
         
 client.run(token)
