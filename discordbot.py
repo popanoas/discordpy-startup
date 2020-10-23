@@ -2,13 +2,11 @@
 import discord
 import asyncio
 import os
-import sys
 import traceback
 import random
 from datetime import datetime
 from discord.ext import tasks
 from discord.ext import commands
-from googlesearch import search
 import threading
 #鯖チャンネルID
 #ID_CHANNEL_1 = 670294227846037514
@@ -236,21 +234,6 @@ async def on_message(message):
         await msg.add_reaction(ID_remove_role)   
         msg = await channel.send('----------------------------------------------------------------------')      
         
-@client.event
-async def on_message(message):
-    if message.author.bot:
-        return
-   # google検索モード(次に何か入力されるとそれを検索)
-        kensaku = message.content
-        # 日本語で検索した上位1件を順番に表示
-        for url in search(kensaku, lang="jp",num = 1):
-            await message.channel.send(url)
-            count += 1
-            if(count == 1):
-               break
-    # google検索モードへの切り替え
-    if message.content == '!google':
-        await message.channel.send('検索するワードをチャットで発言してね')        
         
         
 client.run(token)
