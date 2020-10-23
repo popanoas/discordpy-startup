@@ -137,14 +137,6 @@ async def on_raw_reaction_add(payload):
             role = guild.get_role(ID_role_tk)
             if not member.bot:
                 await member.add_roles(role)
-        
-    if channel.id == ID_readme:
-        if str(payload.emoji) == '<:61ok:728923368870510605>':
-            guild = client.get_guild(payload.guild_id)  
-            member = guild.get_member(payload.user_id)  
-            role = guild.get_role(ID_clanmember)
-            if not member.bot:            
-                await member.add_roles(role)
                 
         #ロールの削除    
         if str(payload.emoji) == '<:knp:758012336706683062>':
@@ -171,14 +163,7 @@ async def on_raw_reaction_add(payload):
             role = guild.get_role(ID_role_tk)
             if not member.bot:
                 await member.remove_roles(role)
-                
-    if channel.id == ID_readme:
-        if str(payload.emoji) == '<:61ok:728923368870510605>':
-            guild = client.get_guild(payload.guild_id)  
-            member = guild.get_member(payload.user_id)  
-            role = guild.get_role(ID_clanmember)
-            if not member.bot:            
-                await member.remove_roles(role)                  
+    
 #リアクションを外すとロールも外れる                
 @client.event  
 async def on_raw_reaction_remove(payload):  
