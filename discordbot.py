@@ -107,28 +107,6 @@ async def on_raw_reaction_add(self, reaction, user):
             text = "父と子とゴデチアのみ名によって、" + message.author.name + "の罪をゆるします。アーメン。安心して行きなさい"
     await channel.send(text)
 
-@client.event  
-async def on_raw_reaction_add(payload):  
-    channel = client.get_channel(payload.channel_id)
-        #readmeでの役職の付与
-    if channel.id == ID_readme:
-        if str(payload.emoji) == '<:61ok:728923368870510605>':
-            guild = client.get_guild(payload.guild_id)  
-            member = guild.get_member(payload.user_id)  
-            role = guild.get_role(ID_clanmember)
-            if not member.bot:            
-                await member.add_roles(role)
-@client.event  
-async def on_raw_reaction_remove(payload):  
-    channel = client.get_channel(payload.channel_id)
-    if channel.id == ID_readme:
-        if str(payload.emoji) == '<:61ok:728923368870510605>':
-            guild = client.get_guild(payload.guild_id)  
-            member = guild.get_member(payload.user_id)  
-            role = guild.get_role(ID_clanmember)
-            if not member.bot:            
-                await member.remove_roles(role)  
-    
     
 @client.event  
 async def on_raw_reaction_add(payload):  
@@ -159,7 +137,15 @@ async def on_raw_reaction_add(payload):
             role = guild.get_role(ID_role_tk)
             if not member.bot:
                 await member.add_roles(role)
-            
+        
+    if channel.id == ID_readme:
+        if str(payload.emoji) == '<:61ok:728923368870510605>':
+            guild = client.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_clanmember)
+            if not member.bot:            
+                await member.add_roles(role)
+                
         #ロールの削除    
         if str(payload.emoji) == '<:knp:758012336706683062>':
             guild = client.get_guild(payload.guild_id)  
@@ -185,6 +171,14 @@ async def on_raw_reaction_add(payload):
             role = guild.get_role(ID_role_tk)
             if not member.bot:
                 await member.remove_roles(role)
+                
+    if channel.id == ID_readme:
+        if str(payload.emoji) == '<:61ok:728923368870510605>':
+            guild = client.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_clanmember)
+            if not member.bot:            
+                await member.remove_roles(role)                  
 #リアクションを外すとロールも外れる                
 @client.event  
 async def on_raw_reaction_remove(payload):  
