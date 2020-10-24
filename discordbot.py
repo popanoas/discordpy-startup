@@ -54,7 +54,7 @@ async def on_message(message):
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '07:35':
+    if now == '07:50':
         #ランドソル杯データ入力
         #channel = client.get_channel(ID_Mana)
         #msg = await channel.send('日付が変わりました！記入が終わったらリアクションを付けてね♡ \n https://docs.google.com/spreadsheets/d/1nCdtFHS-60WcRZDx8hTXHFm3mPuEqefntQxeRfM2Lv0/edit#gid=632518118')  
@@ -80,7 +80,7 @@ loop.start()
 async def loop2():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '07:35':
+    if now == '07:50':
         guild = client.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id)  
         role = guild.get_role(ID_role_1)
