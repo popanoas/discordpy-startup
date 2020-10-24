@@ -135,7 +135,7 @@ async def on_raw_reaction_add(payload):
                 text = member.name + 'さんが1凸しました♡' 
                 await channel.send(text)
                 await asyncio.sleep(5)  
-                msg = await channel.send(text) 
+                msg = await channel.send() 
                 await msg.delete()         
         if str(payload.emoji) == '<:2totu:767560336826957846>':
             guild = client.get_guild(payload.guild_id)  
