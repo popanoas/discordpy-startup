@@ -54,7 +54,7 @@ async def on_message(message):
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '09:00':
+    if now == '08:50':
         guild = client.get_guild(guild_id)  
         member = guild.get_member(user_id)  
         role = guild.get_role(ID_role_1)
