@@ -70,13 +70,20 @@ async def loop():
         await msg.add_reaction(ID_tk)
         msg = await channel.send('凸状況の初期化')        
         await msg.add_reaction(ID_remove_role)   
-        msg = await channel.send('----------------------------------------------------------------------')            
-        #ロールの削除
+        msg = await channel.send('----------------------------------------------------------------------')                
 
+    if now == '07:16':    
+        guild = client.get_guild(payload.guild_id)  
+        member = guild.get_member(payload.user_id)  
+        role = guild.get_role(ID_role_1)
+        if not member.bot:
+            await member.remove_roles(role)         
+        
         
 #ループ処理実行
 loop.start()    
-
+        
+        
 #@client.event
 #async def on_raw_reaction_add(payload):
     # author: リアクションがついたメッセージを書いた人
