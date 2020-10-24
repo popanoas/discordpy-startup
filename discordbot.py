@@ -75,7 +75,21 @@ async def loop():
 #ループ処理実行
 loop.start()    
 
-        
+# 60秒に一回ループ
+@tasks.loop(seconds=60)
+async def loop2():
+    # 現在の時刻
+    now = datetime.now().strftime('%H:%M')
+    if now == '07:35':
+        guild = client.get_guild(payload.guild_id)  
+        member = guild.get_member(payload.user_id)  
+        role = guild.get_role(ID_role_1)
+        if not member.bot:
+            await member.remove_roles(role)
+            
+#ループ処理実行
+loop2.start() 
+
 #@client.event
 #async def on_raw_reaction_add(payload):
     # author: リアクションがついたメッセージを書いた人
