@@ -131,7 +131,11 @@ async def on_raw_reaction_add(payload):
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_1)
             if not member.bot:            
-                await member.add_roles(role)  
+                await member.add_roles(role)
+                    text = member.name + 'さんが1凸しました♡' 
+                await channel.send(text)
+                await asyncio.sleep(5)     
+                await text.delete()         
         if str(payload.emoji) == '<:2totu:767560336826957846>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
