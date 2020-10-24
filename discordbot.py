@@ -11,7 +11,7 @@ import threading
 #鯖チャンネルID
 #ID_CHANNEL_1 = 670294227846037514
 ID_CHANNEL_ZANGE = 741739653245173800
-ID_taskkill = 726398497384824853
+ID_taskkill = 731046340674453567
 ID_Mana = 730136347477540908
 ID_readme = 768272323341320232
 #ロールID
@@ -72,7 +72,7 @@ async def loop():
         await msg.add_reaction(ID_remove_role)   
         msg = await channel.send('----------------------------------------------------------------------')                
 
-    if now == '07:16':    
+    if now == '07:20':    
         guild = client.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id)  
         role = guild.get_role(ID_role_1)
