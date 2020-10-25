@@ -163,7 +163,6 @@ async def on_raw_reaction_add(payload):
                 await member.remove_roles(role2)
                 await member.remove_roles(role3)            
                 await member.remove_roles(roletk)
-                await member.remove_reaction(payload.emoji)
                 msg = await channel.send(member.name + 'さんの凸状況が初期化されました♡')  
                 await asyncio.sleep(5)  
                 await msg.delete()    
