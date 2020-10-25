@@ -11,7 +11,7 @@ import threading
 #鯖チャンネルID
 #ID_CHANNEL_1 = 670294227846037514
 ID_CHANNEL_ZANGE = 741739653245173800
-ID_taskkill = 628175073504788491  #628175073504788491はサンドボックス。管理所726398497384824853。テスト731046340674453567
+ID_taskkill = 731046340674453567  #628175073504788491はサンドボックス。管理所726398497384824853。テスト731046340674453567
 ID_Mana = 730136347477540908
 ID_readme = 768272323341320232
 #ロールID
@@ -209,17 +209,17 @@ async def on_raw_reaction_remove(payload):
                 await asyncio.sleep(5)  
                 await msg.delete()                 
 
-#@client.event  
-#async def on_raw_reaction_add(payload):  
-    #channel = client.get_channel(payload.channel_id)
-    #if channel.id == ID_readme:
+@client.event  
+async def on_raw_reaction_add(payload):  
+    channel = client.get_channel(payload.channel_id)
+    if channel.id == ID_readme:
         #ロールの付与
-        #if str(payload.emoji) == '<:61ok:728923368870510605>':
-            #guild = client.get_guild(payload.guild_id)  
-            #member = guild.get_member(payload.user_id)  
-            #role = guild.get_role(ID_clanmember)
-            #if not member.bot:            
-                #await member.add_roles(role)                
+        if str(payload.emoji) == '<:61ok:728923368870510605>':
+            guild = client.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_clanmember)
+            if not member.bot:            
+                await member.add_roles(role)                
                 
 @client.event
 async def on_message(message):
