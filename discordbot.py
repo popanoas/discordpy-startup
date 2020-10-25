@@ -177,26 +177,37 @@ async def on_raw_reaction_remove(payload):
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_1)
             if not member.bot:            
-                await member.remove_roles(role)  
+                await member.remove_roles(role)
+                msg = await channel.send(member.name + 'さんが1凸目をキャンセルしました♡')  
+                await asyncio.sleep(5)  
+                await msg.delete()                   
         if str(payload.emoji) == '<:2totu:767560336826957846>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_2)
             if not member.bot:
-                await member.remove_roles(role) 
+                await member.remove_roles(role)
+                msg = await channel.send(member.name + 'さんが2凸目をキャンセルしました♡')  
+                await asyncio.sleep(5)  
+                await msg.delete()                      
         if str(payload.emoji) == '<:3totu:767560349947658300>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_3)
             if not member.bot:
                 await member.remove_roles(role)
+                msg = await channel.send(member.name + 'さんが3凸目をキャンセルしました♡')  
+                await asyncio.sleep(5)  
+                await msg.delete()                 
         if str(payload.emoji) == '<:syarururage:737890640519495712>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_tk)
             if not member.bot:
                 await member.remove_roles(role)    
-                
+                msg = await channel.send(member.name + 'さんがタスクキルをキャンセルしました♡')  
+                await asyncio.sleep(5)  
+                await msg.delete()                 
 
 @client.event
 async def on_message(message):
