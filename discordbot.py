@@ -127,46 +127,46 @@ async def on_raw_reaction_add(payload):
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_2)
             if not member.bot:
-                await member.add_roles(role) 
+                await member.add_roles(role)
+                msg = await channel.send(member.name + 'さんが2凸しました♡')  
+                await asyncio.sleep(5)  
+                await msg.delete()       
         if str(payload.emoji) == '<:3totu:767560349947658300>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_3)
             if not member.bot:
-                await member.add_roles(role)   
+                await member.add_roles(role)
+                msg = await channel.send(member.name + 'さんが3凸しました♡')  
+                await asyncio.sleep(5)  
+                await msg.delete()                    
         if str(payload.emoji) == '<:syarururage:737890640519495712>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_tk)
             if not member.bot:
                 await member.add_roles(role)
+                msg = await channel.send(member.name + 'さんがタスクキルしました♡')  
+                await asyncio.sleep(5)  
+                await msg.delete()    
                 
         #ロールの削除    
         if str(payload.emoji) == '<:knp:758012336706683062>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
-            role = guild.get_role(ID_role_1)
+            role1 = guild.get_role(ID_role_1)
+            role2 = guild.get_role(ID_role_2)
+            role3 = guild.get_role(ID_role_3)
+            roletk = guild.get_role(ID_role_tk)            
             if not member.bot:
-                await member.remove_roles(role)
-        if str(payload.emoji) == '<:knp:758012336706683062>':
-            guild = client.get_guild(payload.guild_id)  
-            member = guild.get_member(payload.user_id)  
-            role = guild.get_role(ID_role_2)
-            if not member.bot:
-                await member.remove_roles(role)
-        if str(payload.emoji) == '<:knp:758012336706683062>':
-            guild = client.get_guild(payload.guild_id)  
-            member = guild.get_member(payload.user_id)  
-            role = guild.get_role(ID_role_3)
-            if not member.bot:
-                await member.remove_roles(role)            
-        if str(payload.emoji) == '<:knp:758012336706683062>':
-            guild = client.get_guild(payload.guild_id)  
-            member = guild.get_member(payload.user_id)  
-            role = guild.get_role(ID_role_tk)
-            if not member.bot:
-                await member.remove_roles(role)
-    
+                await member.remove_roles(role1)
+                await member.remove_roles(role2)
+                await member.remove_roles(role3)            
+                await member.remove_roles(roletk)
+                msg = await channel.send(member.name + 'さんの凸状況が初期化されました♡')  
+                await asyncio.sleep(5)  
+                await msg.delete()    
+                
 #リアクションを外すとロールも外れる                
 @client.event  
 async def on_raw_reaction_remove(payload):  
