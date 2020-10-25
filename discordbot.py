@@ -166,7 +166,15 @@ async def on_raw_reaction_add(payload):
                 msg = await channel.send(member.name + 'さんの凸状況が初期化されました♡')  
                 await asyncio.sleep(5)  
                 await msg.delete()    
-                
+
+    if channel.id == ID_readme:
+        #ロールの付与
+        if str(payload.emoji) == '<:61ok:728923368870510605>':
+            guild = client.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_clanmember)
+            if not member.bot:            
+                await member.add_roles(role)                
 #リアクションを外すとロールも外れる                
 @client.event  
 async def on_raw_reaction_remove(payload):  
@@ -209,17 +217,17 @@ async def on_raw_reaction_remove(payload):
                 await asyncio.sleep(5)  
                 await msg.delete()                 
 
-@client.event  
-async def on_raw_reaction_add(payload):  
-    channel = client.get_channel(payload.channel_id)
-    if channel.id == ID_readme:
+#@client.event  
+#async def on_raw_reaction_add(payload):  
+    #channel = client.get_channel(payload.channel_id)
+    #if channel.id == ID_readme:
         #ロールの付与
-        if str(payload.emoji) == '<:61ok:728923368870510605>':
-            guild = client.get_guild(payload.guild_id)  
-            member = guild.get_member(payload.user_id)  
-            role = guild.get_role(ID_clanmember)
-            if not member.bot:            
-                await member.add_roles(role)                
+        #if str(payload.emoji) == '<:61ok:728923368870510605>':
+            #guild = client.get_guild(payload.guild_id)  
+            #member = guild.get_member(payload.user_id)  
+            #role = guild.get_role(ID_clanmember)
+            #if not member.bot:            
+                #await member.add_roles(role)                
                 
 @client.event
 async def on_message(message):
