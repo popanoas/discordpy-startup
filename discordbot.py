@@ -116,34 +116,32 @@ async def on_raw_reaction_add(payload):
         if str(payload.emoji) == '<:1totu:767560319853395970>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
-            role = guild.get_role(ID_role_1)
+            role = guild.get_role(ID_role_1)        
             if not member.bot:            
                 await member.add_roles(role)
                 msg = await channel.send(member.name + 'さんが1凸しました♡')  
                 await asyncio.sleep(5)  
                 await msg.delete()
-        if str(payload.emoji) == '<:1totu:767560319853395970>':
-            guild = client.get_guild(payload.guild_id)  
-            member = guild.get_member(payload.user_id)  
-            role = guild.get_role(ID_role_2)
-            if not member.bot:            
-                await member.remove_roles(role)
                 
         if str(payload.emoji) == '<:2totu:767560336826957846>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_role_2)
+            role1 = guild.get_role(ID_role_1)            
             if not member.bot:        
                 await member.add_roles(role)
+                await member.remove_roles(role1)          
                 msg = await channel.send(member.name + 'さんが2凸しました♡')  
                 await asyncio.sleep(5)  
                 await msg.delete()       
         if str(payload.emoji) == '<:3totu:767560349947658300>':
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
-            role = guild.get_role(ID_role_3)            
+            role = guild.get_role(ID_role_3)
+            role = guild.get_role(ID_role_2)           
             if not member.bot:                  
                 await member.add_roles(role)
+                await member.remove_roles(role2)                   
                 msg = await channel.send(member.name + 'さんが3凸しました♡')  
                 await asyncio.sleep(5)  
                 await msg.delete()                    
