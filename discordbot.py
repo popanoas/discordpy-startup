@@ -55,15 +55,15 @@ async def roleinit():
     now = datetime.now().strftime('%H:%M')
     
     if now == '12:50':
-        msg = await ch_sandbox.send("test")
-#         ch_sandbox = client.get_channel(628175073504788491)
-#         msg = await ch_sandbox.send("erovolley delete")
-#         roletest = client.guild.get_role(ID_role_test)
-#         for member in client.guild.members:
-#             if not member.bot:
-#                 msg = await channel.send(member)
+        
+        ch_sandbox = client.get_channel(628175073504788491)
+        msg = await ch_sandbox.send("erovolley delete")
+        roletest = client.guild.get_role(ID_role_test)
+        for member in client.guild.members:
+            if not member.bot:
+                msg = await channel.send(member)
                 
-#                 await member.remove_roles(roletest)
+                await member.remove_roles(roletest)
         
         
         
