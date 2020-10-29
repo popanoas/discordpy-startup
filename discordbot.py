@@ -20,6 +20,7 @@ ID_role_2 = 767200011749949470
 ID_role_3 = 767200106557865985
 ID_role_tk = 767200196827676683
 ID_clanmember = 666361330827132979
+ID_role_test = 760094885364629524
 #鯖専用絵文字
 ID_emoji = '<:61ok:728923368870510605>'
 ID_tk = '<:syarururage:737890640519495712>'
@@ -53,8 +54,9 @@ async def on_message(message):
 async def loop():
     now = datetime.now().strftime('%H:%M')
     
-    if now == '11:07':
+    if now == '11:15':
         ch_sandbox = client.get_channel(628175073504788491)
+        msg = await ch_sandbox.send("erovolley delete")
         roletest = client.guild.get_role(ID_role_test)
         for member in client.guild.members:
             if not member.bot:
