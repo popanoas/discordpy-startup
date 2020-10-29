@@ -50,20 +50,20 @@ async def on_message(message):
         channel = client.get_channel(ID_CHANNEL_1)
         await channel.send('--------------------1段階目--------------------')       
 
-#@tasks.loop(second=60)
-#async def roleinit():
-    #now = datetime.now().strftime('%H:%M')
+@tasks.loop(seconds=60)
+async def roleinit():
+    now = datetime.now().strftime('%H:%M')
     
-    #if now == '12:55':
+    if now == '12:55':
         
-        #ch_sandbox = client.get_channel(628175073504788491)
-        #msg = await ch_sandbox.send("erovolley delete")
-        #roletest = client.guild.get_role(ID_role_test)
-        #for member in client.guild.members:
-            #if not member.bot:
-                #msg = await channel.send(member)
+        ch_sandbox = client.get_channel(628175073504788491)
+        msg = await ch_sandbox.send("erovolley delete")
+        roletest = client.guild.get_role(ID_role_test)
+        for member in client.guild.members:
+            if not member.bot:
+                msg = await channel.send(member)
                 
-                #await member.remove_roles(roletest)
+                await member.remove_roles(roletest)
         
         
         
@@ -73,7 +73,7 @@ async def on_message(message):
 async def totuDeclaration():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '05:00':
+    if now == '13:26':
   
         #ランドソル杯データ入力
         #channel = client.get_channel(ID_Mana)
