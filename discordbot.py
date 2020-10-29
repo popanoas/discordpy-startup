@@ -54,7 +54,7 @@ async def on_message(message):
 async def roleinit():
     now = datetime.now().strftime('%H:%M')
     
-    if now == '13:35':
+    if now == '20:05':
         
         ch_sandbox = client.get_channel(628175073504788491)
         msg = await ch_sandbox.send("erovolley delete")
@@ -67,13 +67,14 @@ async def roleinit():
         
             await channel.send("エロバレー部を削除しました")
         
-        
+roleinit.start()  
+
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
 async def totuDeclaration():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '13:26':
+    if now == '05:00':
   
         #ランドソル杯データ入力
         #channel = client.get_channel(ID_Mana)
@@ -96,7 +97,7 @@ async def totuDeclaration():
      
 #ループ処理実行
 totuDeclaration.start()    
-#roleinit.start()
+
 
 
 #@client.event
