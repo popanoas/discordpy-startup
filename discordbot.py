@@ -54,7 +54,7 @@ async def on_message(message):
 async def roleinit():
     now = datetime.now().strftime('%H:%M')
     
-    if now == '20:05':
+    if now == '20:15':
         
         ch_sandbox = client.get_channel(628175073504788491)
         msg = await ch_sandbox.send("erovolley delete")
