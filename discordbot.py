@@ -48,7 +48,23 @@ async def on_message(message):
     if message.content == '/1段階目':
         channel = client.get_channel(ID_CHANNEL_1)
         await channel.send('--------------------1段階目--------------------')       
+
+@tasks.loop(second=60)
+async def loop():
+    now = datetime.now().strftime('%H:%M')
     
+    if now == '11:07':
+        ch_sandbox = client.get_channel(628175073504788491)
+        roletest = client.guild.get_role(ID_role_test)
+        for member in client.guild.members:
+            if not member.bot:
+                msg = await channel.send(member)
+                
+                await member.remove_roles(roletest)
+
+        
+        
+        
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
 async def loop():
@@ -61,6 +77,8 @@ async def loop():
         #msg = await channel.send('日付が変わりました！記入が終わったらリアクションを付けてね♡ \n https://docs.google.com/spreadsheets/d/1nCdtFHS-60WcRZDx8hTXHFm3mPuEqefntQxeRfM2Lv0/edit#gid=632518118')  
         #await msg.add_reaction(ID_emoji) 
         #凸、タスクキル管理
+        
+       
         channel = client.get_channel(ID_taskkill)
         msg = await channel.send('---------------------------------------------------------------------- \n 凸、タスクキルしたらリアクションを付けてください♡ \n 間違えて押したときはリアクションを外してください♡') 
         msg = await channel.send('今日の凸状況')
