@@ -51,10 +51,10 @@ async def on_message(message):
         await channel.send('--------------------1段階目--------------------')       
 
 @tasks.loop(second=60)
-async def loop():
+async def roleinit():
     now = datetime.now().strftime('%H:%M')
     
-    if now == '11:15':
+    if now == '11:20':
         ch_sandbox = client.get_channel(628175073504788491)
         msg = await ch_sandbox.send("erovolley delete")
         roletest = client.guild.get_role(ID_role_test)
@@ -63,13 +63,13 @@ async def loop():
                 msg = await channel.send(member)
                 
                 await member.remove_roles(roletest)
-
+        
         
         
         
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
-async def loop():
+async def totuDeclaration():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
     if now == '05:00':
@@ -94,7 +94,8 @@ async def loop():
         msg = await channel.send('----------------------------------------------------------------------')                
      
 #ループ処理実行
-loop.start()    
+totuDeclaration.start()    
+roleinit.start()
 
 
 #@client.event
