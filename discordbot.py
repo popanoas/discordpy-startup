@@ -96,7 +96,7 @@ async def totuDeclaration():
      
 #ループ処理実行
 totuDeclaration.start()    
-roleinit.start()
+#roleinit.start()
 
 
 #@client.event
