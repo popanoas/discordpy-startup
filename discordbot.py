@@ -54,18 +54,18 @@ async def on_message(message):
 async def roleinit():
     now = datetime.now().strftime('%H:%M')
     
-    if now == '13:30':
+    if now == '13:35':
         
         ch_sandbox = client.get_channel(628175073504788491)
         msg = await ch_sandbox.send("erovolley delete")
         roletest = client.guild.get_role(ID_role_test)
         for member in client.guild.members:
             if not member.bot:
-                msg = await channel.send(member)
+                await channel.send(member)
                 
                 await member.remove_roles(roletest)
         
-        
+            await channel.send("エロバレー部を削除しました")
         
         
 # 60秒に一回ループ
