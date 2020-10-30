@@ -65,10 +65,10 @@ async def on_message(payload):
     
         
 @tasks.loop(seconds=60)
-async def roleinit():
+async def loop():
     now = datetime.now().strftime('%H:%M')
    
-    if now == '23:45':
+    if now == '14:50':
 
         ch_sandbox = client.get_channel(628175073504788491)
         msg = await ch_sandbox.send("erovolley delete")
@@ -81,7 +81,7 @@ async def roleinit():
 
             await channel.send("エロバレー部を削除しました")
         
-roleinit.start()  
+loop.start()  
 
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
