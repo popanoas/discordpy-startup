@@ -54,13 +54,10 @@ async def on_message(message):
 
 @client.event
 async def on_message(payload):
-    channel = client.get_channel(ID_test)
-    guild = client.get_guild(payload.guild_id)  
-    member = guild.get_member(payload.user_id)      
+    channel = client.get_channel(736757807780462643)
     if message.author.bot:
         return
-    if channel.id == ID_test:
-            await message.add_reaction(":x:") 
+        await message.add_reaction(":x:") 
             
     
         
