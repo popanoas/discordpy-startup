@@ -71,7 +71,7 @@ async def loop():
     if now == '14:50':
 
         ch_sandbox = client.get_channel(628175073504788491)
-        msg = await ch_sandbox.send("erovolley delete")
+        await ch_sandbox.send("erovolley delete")
         roletest = client.guild.get_role(ID_role_test)
         for member in client.guild.members:
             if not member.bot:
