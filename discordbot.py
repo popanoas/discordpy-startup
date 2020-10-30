@@ -59,7 +59,8 @@ async def on_message(payload):
         return
         channel = client.get_channel(payload.channel_id)
         if channel.id == ID_test:
-            await on_message.add_reaction(ID_emoji) 
+            msg = on_message
+            await msg.add_reaction(ID_emoji) 
             
     
         
