@@ -54,10 +54,13 @@ async def on_message(message):
 
 @client.event
 async def on_message(payload):
-    channel = client.get_channel(736757807780462643)
+    channel = client.get_channel(ID_test)
+    guild = client.get_guild(payload.guild_id)  
+    member = guild.get_member(payload.user_id)      
     if message.author.bot:
         return
-        await message.add_reaction(ID_emoji) 
+    if channel.id == ID_test:
+            await message.add_reaction(":x:") 
             
     
         
@@ -65,12 +68,12 @@ async def on_message(payload):
 async def loop():
     now = datetime.now().strftime('%H:%M')
    
-    if now == '14:50':
+    if now == '15:00':
 
         ch_sandbox = client.get_channel(628175073504788491)
         await ch_sandbox.send("erovolley delete")
-        roletest = client.guild.get_role(ID_role_test)
-        for member in client.guild.members:
+        roletest = client.get_role(ID_role_test)
+        for member in client.members:
             if not member.bot:
                 await channel.send(member)
 
