@@ -57,7 +57,7 @@ async def on_message(payload):
     channel = client.get_channel(736757807780462643)
     if message.author.bot:
         return
-        await message.add_reaction(":x:") 
+        await message.add_reaction(ID_emoji) 
             
     
         
