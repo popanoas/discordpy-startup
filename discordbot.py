@@ -54,13 +54,13 @@ async def on_message(message):
 
 @client.event
 async def on_message(payload):
-    # メッセージ送信者がBotだった場合は無視する
+    channel = client.get_channel(ID_test)
+    guild = client.get_guild(payload.guild_id)  
+    member = guild.get_member(payload.user_id)      
     if message.author.bot:
         return
-        channel = client.get_channel(payload.channel_id)
-        if channel.id == ID_test:
-            msg = on_message
-            await msg.add_reaction(ID_emoji) 
+    if channel.id == ID_test:
+            await message.add_reaction(":x:") 
             
     
         
@@ -137,12 +137,12 @@ totuDeclaration.start()
         #else:
             #text = member.name + 'さんが入力しました♡' 
             
-@client.event
-async def on_raw_reaction_add(self, reaction, user):
-    if channel.id == ID_CHANNEL_ZANGE:
-        if payload.emoji.name == '\N{GRINNING FACE}':
-            text = "父と子とゴデチアのみ名によって、" + message.author.name + "の罪をゆるします。アーメン。安心して行きなさい"
-            await channel.send(text)
+#@client.event
+#async def on_raw_reaction_add(self, reaction, user):
+    #if channel.id == ID_CHANNEL_ZANGE:
+        #if payload.emoji.name == '\N{GRINNING FACE}':
+            #text = "父と子とゴデチアのみ名によって、" + message.author.name + "の罪をゆるします。アーメン。安心して行きなさい"
+            #await channel.send(text)
 
     
 @client.event  
