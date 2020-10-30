@@ -15,6 +15,7 @@ ID_taskkill = 726398497384824853  #628175073504788491はサンドボックス。
 ID_Mana = 730136347477540908
 ID_readme = 768272323341320232
 ID_yoyaku = 736757807780462643
+ID_test = 731046340674453567
 #ロールID
 ID_role_1 = 767249291730747403
 ID_role_2 = 767200011749949470
@@ -57,7 +58,7 @@ async def on_message(payload):
     if message.author.bot:
         return
         channel = client.get_channel(payload.channel_id)
-        if channel.id == ID_yoyaku:
+        if channel.id == ID_test:
             await message.add_reaction(ID_emoji) 
             
     
