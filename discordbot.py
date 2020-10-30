@@ -52,10 +52,11 @@ async def on_message(message):
         await channel.send('--------------------1段階目--------------------')       
 
 @client.event
-async def on_message(message):
+async def on_message(payload):
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
+        channel = client.get_channel(payload.channel_id)
         if channel.id == ID_yoyaku:
             await message.add_reaction(ID_emoji) 
             
