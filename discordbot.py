@@ -64,7 +64,7 @@ async def on_message(payload):
             
     
         
-@tasks.loop(seconds=60)
+#@tasks.loop(seconds=60)
 async def loop():
     now = datetime.now().strftime('%H:%M')
    
@@ -84,7 +84,7 @@ async def loop():
 loop.start()  
 
 # 60秒に一回ループ
-@tasks.loop(seconds=60)
+#@tasks.loop(seconds=60)
 async def totuDeclaration():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
