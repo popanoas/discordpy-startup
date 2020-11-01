@@ -64,11 +64,11 @@ async def on_message(payload):
             
     
         
-#@tasks.loop(seconds=60)
+@tasks.loop(seconds=60)
 async def loop():
     now = datetime.now().strftime('%H:%M')
    
-    if now == '15:00':
+    if now == '5:00':
 
         ch_sandbox = client.get_channel(628175073504788491)
         await ch_sandbox.send("erovolley delete")
@@ -84,7 +84,7 @@ async def loop():
 loop.start()  
 
 # 60秒に一回ループ
-#@tasks.loop(seconds=60)
+@tasks.loop(seconds=60)
 async def totuDeclaration():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
