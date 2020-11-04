@@ -35,11 +35,9 @@ ID_remove_role = '<:knp:758012336706683062>'
 ID_message_totu = 767913437090283520
 ID_message_tk = 767913440516898826
 ID_message_reset = 767913441943879720
-
 token = os.environ['DISCORD_BOT_TOKEN']
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
-
 # メッセージ受信時に動作する処理
 #@client.event
 async def on_message(message):
@@ -51,7 +49,6 @@ async def on_message(message):
     if message.content == '/1段階目':
         channel = client.get_channel(ID_CHANNEL_1)
         await channel.send('--------------------1段階目--------------------')       
-
 @client.event
 async def on_message(payload):
     channel = client.get_channel(ID_test)
@@ -69,20 +66,16 @@ async def loop():
     now = datetime.now().strftime('%H:%M')
    
     if now == '5:00':
-
         ch_sandbox = client.get_channel(628175073504788491)
         await ch_sandbox.send("erovolley delete")
         roletest = client.get_role(ID_role_test)
         for member in client.members:
             if not member.bot:
                 await channel.send(member)
-
                 await member.remove_roles(roletest)
-
             await channel.send("エロバレー部を削除しました")
         
 loop.start()  
-
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
 async def totuDeclaration():
@@ -111,9 +104,6 @@ async def totuDeclaration():
      
 #ループ処理実行
 totuDeclaration.start()    
-
-
-
 #@client.event
 #async def on_raw_reaction_add(payload):
     # author: リアクションがついたメッセージを書いた人
@@ -143,7 +133,6 @@ totuDeclaration.start()
         #if payload.emoji.name == '\N{GRINNING FACE}':
             #text = "父と子とゴデチアのみ名によって、" + message.author.name + "の罪をゆるします。アーメン。安心して行きなさい"
             #await channel.send(text)
-
     
 @client.event  
 async def on_raw_reaction_add(payload):  
@@ -208,7 +197,6 @@ async def on_raw_reaction_add(payload):
                 msg = await channel.send(member.name + 'さんの凸状況が初期化されました♡')  
                 await asyncio.sleep(5)  
                 await msg.delete()    
-
     if channel.id == ID_readme:
         #ロールの付与
         if str(payload.emoji) == '<:61ok:728923368870510605>':
