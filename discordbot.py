@@ -51,10 +51,7 @@ def main():
         if len(message.content) > max_length:
             message.content = message.content[:max_length] + " 以下略"
 
-        # 通話に参加
-        voice_client = message.guild.voice_client
-        if not voice_client:
-            voice_client = await bot.get_channel(voice_channel_id).connect()
+
 
         # 喋っている途中は待つ
         while voice_client.is_playing():
