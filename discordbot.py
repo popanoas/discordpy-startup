@@ -7,6 +7,7 @@ from text2wav import text2wav
 import private
 import re
 token = os.environ['DISCORD_BOT_TOKEN']
+voice_channel_id = 638718958819606549
 
 
 def main():
