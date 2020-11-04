@@ -19,12 +19,7 @@ def main():
     async def leave(ctx):
         server = ctx.message.guild.voice_client
         await server.disconnect()
-        
-    @bot.command()
-    async def come(ctx):
-        server = ctx.message.guild.voice_client
-        await server.connect()
-        
+
 
     @bot.event
     async def on_message(message):
@@ -51,7 +46,10 @@ def main():
         if len(message.content) > max_length:
             message.content = message.content[:max_length] + " 以下略"
 
-
+        # 通話に参加
+        voice_client = message.guild.voice_client
+        if not voice_client:
+            voice_client = await bot.get_channel(private.voice_channel_id).connect()
 
         # 喋っている途中は待つ
         while voice_client.is_playing():
