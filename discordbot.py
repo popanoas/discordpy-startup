@@ -6,7 +6,7 @@ from discord.ext import commands
 from text2wav import text2wav
 import re
 token = os.environ['DISCORD_BOT_TOKEN']
-voice_channel_id = 620957164244303925
+voice_channel_id = 771541291266736169
 
 def main():
     bot = commands.Bot(command_prefix="!")
