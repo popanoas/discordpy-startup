@@ -51,39 +51,41 @@ async def on_message(message):
     if message.content == '/1段階目':
         channel = client.get_channel(ID_CHANNEL_1)
         await channel.send('--------------------1段階目--------------------')       
-@client.event
-async def on_message(payload):
-    channel = client.get_channel(ID_test)
-    guild = client.get_guild(payload.guild_id)  
-    member = guild.get_member(payload.user_id)      
-    if message.author.bot:
-        return
-    if channel.id == ID_test:
-            await message.add_reaction(":x:") 
+@client.event  
+async def on_raw_reaction_add(payload):  
+    channel = client.get_channel(payload.channel_id)
+    if channel.id == ID_readme:
+    #ロールの付与
+        if str(payload.emoji) == '<:61ok:728923368870510605>':
+            guild = client.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_clanmember)
+            if not member.bot:            
+                await member.add_roles(role)     
 
 
 
-@tasks.loop(seconds=60)
-async def loop():
-    now = datetime.now().strftime('%H:%M')
+#@tasks.loop(seconds=60)
+#async def loop():
+    #now = datetime.now().strftime('%H:%M')
 
-    if now == '5:00':
-        ch_sandbox = client.get_channel(628175073504788491)
-        await ch_sandbox.send("erovolley delete")
-        roletest = client.get_role(ID_role_test)
-        for member in client.members:
-            if not member.bot:
-                await channel.send(member)
-                await member.remove_roles(roletest)
-            await channel.send("エロバレー部を削除しました")
+    #if now == '5:00':
+        #ch_sandbox = client.get_channel(628175073504788491)
+        #await ch_sandbox.send("erovolley delete")
+        #roletest = client.get_role(ID_role_test)
+        #for member in client.members:
+            #if not member.bot:
+                #await channel.send(member)
+                #await member.remove_roles(roletest)
+            #await channel.send("エロバレー部を削除しました")
 
-loop.start()  
+#loop.start()  
 # 60秒に一回ループ
-@tasks.loop(seconds=60)
-async def totuDeclaration():
+#@tasks.loop(seconds=60)
+#async def totuDeclaration():
     # 現在の時刻
-    now = datetime.now().strftime('%H:%M')
-    if now == '05:00':
+    #now = datetime.now().strftime('%H:%M')
+    #if now == '05:00':
 
         #ランドソル杯データ入力
         #channel = client.get_channel(ID_Mana)
@@ -92,20 +94,20 @@ async def totuDeclaration():
         #凸、タスクキル管理
 
 
-        channel = client.get_channel(ID_taskkill)
-        msg = await channel.send('---------------------------------------------------------------------- \n 凸、タスクキルしたらリアクションを付けてください♡ \n 間違えて押したときはリアクションを外してください♡') 
-        msg = await channel.send('今日の凸状況')
-        await msg.add_reaction(ID_1)
-        await msg.add_reaction(ID_2)
-        await msg.add_reaction(ID_3)
-        msg = await channel.send('今日のタスクキル')
-        await msg.add_reaction(ID_tk)
-        msg = await channel.send('凸状況の初期化')        
-        await msg.add_reaction(ID_remove_role)   
-        msg = await channel.send('----------------------------------------------------------------------')                
+        #channel = client.get_channel(ID_taskkill)
+        #msg = await channel.send('---------------------------------------------------------------------- \n 凸、タスクキルしたらリアクションを付けてください♡ \n 間違えて押したときはリアクションを外してください♡') 
+        #msg = await channel.send('今日の凸状況')
+        #await msg.add_reaction(ID_1)
+        #await msg.add_reaction(ID_2)
+        #await msg.add_reaction(ID_3)
+        #msg = await channel.send('今日のタスクキル')
+        #await msg.add_reaction(ID_tk)
+        #msg = await channel.send('凸状況の初期化')        
+        #await msg.add_reaction(ID_remove_role)   
+        #msg = await channel.send('----------------------------------------------------------------------')                
 
 #ループ処理実行
-totuDeclaration.start()    
+#totuDeclaration.start()    
 #@client.event
 #async def on_raw_reaction_add(payload):
     # author: リアクションがついたメッセージを書いた人
