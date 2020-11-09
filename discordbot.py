@@ -207,7 +207,7 @@ async def on_raw_reaction_add(payload):
             guild = client.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_clanmember)          
-                await member.add_roles(role)                
+            await member.add_roles(role)                
 #リアクションを外すとロールも外れる                
 @client.event  
 async def on_raw_reaction_remove(payload):  
